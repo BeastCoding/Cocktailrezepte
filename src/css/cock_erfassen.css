@@ -1,0 +1,82 @@
+
+/* hauptbereich */
+#hauptteil {
+	
+	background: url(../bilder/hintergrund_cock_erf.jpg) 100%; 
+	background-opacity: 0.5;	
+}
+
+fieldset {
+	
+	 
+	border: 2px solid #C5D8E1; 
+           border-radius: 6px; 
+       
+	padding-top: 0.5em;
+}
+legend {
+	padding: 0.2em 0.5em;
+  border:1px solid green;
+  color:green;
+  font-size:90%;
+  text-align:right;
+}
+textarea {
+  background: url(../bilder/icon.jpg) center center no-repeat; /* This ruins default border */
+  border: 1px solid #888; 
+   
+    width: 100%;
+}
+.feldgroesse {
+	width : 150px;
+	font-size:0.7em;
+	line-height: 3em; 
+	 height: 1.5em;   
+}
+.fieldset-auto-width {
+         display: inline-block;
+    }
+#hauptteil_schriftarten {
+	
+	width: 1080px;
+	background-size: 1080px; 
+	height: 600px;
+	margin: 0 auto; 
+	font-size: 50px;
+	
+}
+
+#scharfgestochen {
+	position: relative;
+	top: 185px;
+	left: 100px;
+	width: 1080px;
+	height: 30px;
+	color:#000000;
+	/* background-color:#ffffff; */
+	text-shadow:2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
+	}	
+	
+span.pos {
+	position: absolute;
+	top: 8px;
+	left: 30px;
+	
+	}
+	
+/* Bildschirmbreite maximal 700px*/
+@media screen and (max-width: 700px) {
+	legend {
+		padding: 0.2em 0.5em;
+			border:1px solid green;
+			color:green;
+			font-size:50%;
+			text-align:right;
+}
+.feldgroesse {
+	
+	font-size:0.4em;
+	line-height: 3em; 
+	 height: 1em;   
+}
+}	
