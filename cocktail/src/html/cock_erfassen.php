@@ -1,12 +1,6 @@
-﻿<!DOCTYPE HTML>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Cocktailrezepte</title>
-		<link rel="stylesheet" href="../css/cock_erfassen.css">
-		<link rel="stylesheet" href="../css/general.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
+﻿<?php
+include('module/header.php')
+?>
 	<body>  
 		
 		<header class="obere_zeile">
@@ -19,23 +13,12 @@
 				</div>
 			</div>
 		</header>  
-		<div class="zweite_zeile">
-			<div class="container_nav">
-				<nav>
-					<ul class="ebene0">
-						<a href="../index.php"><img class="logo" src="../bilder/icon.jpg" alt="Logo" /></a>
-						<li><a href="../index.php">Home</a></li>
-						<li><a href="rezepte.html">Rezept suchen</a></li>
-						<li><a href="cock_erfassen.php">Rezept erfassen</a></li>
-						<li><a href="er-modell.html">ER-Modell</a></li>
-						<li><a href="rel_modell.html">Relationen-Modell</a></li>
-					</ul>
-				</nav>
-			</div> 
-		</div>
+		<?php
+		include('module/menu.php')
+		?>
 		<div class="space1"></div>
 		<section id="hauptteil" >
-			<form  action="formular.html" method="post">
+			<form  action="formular.php" method="post">
 				<fieldset >
 					<legend>Einen neuen Cocktail kreieren</legend> 
 					Name des Cocktails: 
@@ -250,25 +233,8 @@
 				
 			
 		</section>
-		<footer>
-			<div class="copyright_cont">
-				<div class="copyright_text">
-					© 2019 Blawath/Kalembasi/Ulrich
-				</div>
-				
-			</div>  
-			<div class="footer_nav_cont">
-				<nav>
-					<ul>
-			<!--			<li><a href="../index.html">Home</a></li>
-						<li>------</li>	-->
-						<li><a href="impressum.html">Impressum</a></li>
-						<li>------</li>
-						<li><a href="kontakt.html">Kontakt</a></li>
-					</ul>
-					
-				</nav>
-				
-			</div> 
-		</footer>
+<?php
+include('module/footer.php')
+?>
+
 
