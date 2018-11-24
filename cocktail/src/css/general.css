@@ -1,0 +1,177 @@
+
+#hauptteil {
+		
+	width: 100%;  
+	max-width: 1080px;
+	background-size: 1080px; 
+/*	background-repeat: no-repeat;  */
+/*	height: 600px;  */
+	margin: 0 auto; 
+	
+}  
+.space1 {
+	height: 0.5em;   
+}  
+/*
+
+img {
+	width: 6%;  
+	padding-top: 0.5em;
+}
+*/
+.logo {
+	width: 6%;  
+	padding-top: 0.5em;
+}
+
+.
+ul {
+	margin:0em;
+	padding:0em;
+}
+
+a {
+	text-decoration:none; 
+}
+
+
+nav {
+	display:inline;
+		
+}
+nav ul {
+	display:block;
+	
+}
+nav ul li {
+	display:inline;
+	margin: 0em 0.7em 0em 0.7em;    
+}
+nav ul li a {
+	color:#717171   ;  
+	font-size:1.35em;     
+	border-bottom:0.188em solid;
+	border-bottom-color: #dcdcdc;
+	padding:0.563em 0.938em 0.375em 0.938em;
+	transition: color 1s ease-in-out, border-bottom-color 1s ease-in-out ;
+	vertical-align: center;	
+	display: table-cell;
+    vertical-align: middle
+} 
+nav ul li a:hover {
+	border-bottom-color: #717171;
+	color:#000000;
+}
+
+/* Header 1. Bereich*/
+.obere_zeile {
+	background:#ffeecc;   
+	height: 3em;
+	font-size: 0.800em;
+	color: #717171;
+}
+.obere_zeile_zentrum {
+	/* display:block;  */
+	max-width: 1080px;
+	margin: auto;
+}
+
+.obere_zeile_zentrum_linke_seite {
+	display: inline-block;
+	width:64%;   
+	text-align: left;
+	padding-top:1em;
+	
+}  
+.obere_zeile_zentrum_rechte_seite {
+	display: inline-block;
+	width:35.0%;   
+	text-align: right;
+}  
+/* 2. Bereich / Logo und Navigation*/
+.zweite_zeile {
+	display:block;
+/*	line-height: 2em;     */
+	max-width: 1080px;
+	margin: auto;
+}
+
+/* Logo*/
+
+.zweite_zeile_logo {
+	
+	display:inline-block; 
+	width:7%;
+	 position: absolute; 
+	
+	 max-width:100px;  
+	 margin-top:-56px; 
+	 margin-left: 10px; 
+}
+
+/*  Navigation */
+
+.container_nav {
+	display:inline-block; 
+	width:100%;   /*  89  */
+}
+
+
+
+/* Footer */
+footer {
+	clear: both;
+	
+	display:block;
+	line-height: 1.5em;  
+	max-width: 1080px;
+	margin: auto;
+}
+
+.copyright_cont {
+	display:inline-block; 
+	width:30%;
+}
+
+.footer_nav_cont {
+	display:inline-block; 
+	width:69%;
+}
+
+
+
+/******************************************
+Responsive Webdesign
+*******************************************/
+
+
+/* Bildschirmbreite maximal 950px */
+@media screen and (max-width: 950px) {
+	body {
+		font-size:60%;
+	}
+}
+
+/* Bildschirmbreite maximal 700px*/
+@media screen and (max-width: 700px) {
+	body {
+		font-size:50%;
+	}
+}
+/* Bildschirmbreite maximal 500px*/
+@media screen and (max-width: 500px) {
+	.copyright_text {
+		color: white;
+	}
+	.copyright_cont {
+	font-size:0.1em;
+	width:1%;
+	}
+	.footer_nav_cont {
+		width:98%;
+	}
+	footer {
+		line-height: 0.5em;  
+	}		
+
+}
