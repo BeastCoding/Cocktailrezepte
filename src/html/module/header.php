@@ -1,6 +1,8 @@
 <?php
 $page = $_SERVER['PHP_SELF'];
 $title = 'default';
+
+// Choose title for the different pages  
 switch($page){
 	case '/dashboard/cocktail/src/index.php': 
 		$title = 'Cocktails'; 
@@ -24,17 +26,16 @@ switch($page){
 		$title = 'Rezepte'; 
 		break;	
 }
+
+// header with individual title
 echo '
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<meta charset="utf-8">';
-echo '
-<title>'.$title.'</title>
-';
-echo '
-<!--hier die style.css für alle html Seiten.-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>'.$title.'</title>
+		<!--hier die style.css für alle html Seiten.-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 ';
 ?>
