@@ -13,3 +13,11 @@ Rezept erstellen
 		if Button Plus pressed:
 			<form> ... </form>
 			Plus_Button
+			
+			
+			
+Änderung:
+	Zutat.Kalorien_pro_Einheit in Kalorien
+	
+Fehler:
+	Zutat.Menge sollte überflüssig sein.
