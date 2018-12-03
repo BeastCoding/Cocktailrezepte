@@ -1,4 +1,4 @@
-SQL-Schnittstelle
+﻿SQL-Schnittstelle
 	zb: function read_SQL(Array,String,Array){}   ## Funktionen zum Lesen/Schreiben/Löschen ohne konkrete Werte
 
 Gemeinsames .css File
@@ -21,3 +21,6 @@ Rezept erstellen
 	
 Fehler:
 	Zutat.Menge sollte überflüssig sein.
+
+
+Test
