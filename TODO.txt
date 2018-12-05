@@ -3,24 +3,26 @@
 
 Gemeinsames .css File
 	Die .css Files zu einem zusammenfassen.
-	
+
 Rezept erstellen
 	erst einmal nur Cocktail Name und Zutat.
-	z.B: 
+	z.B:
 	<form>...</form>
-	
+
 	Plus_Button
 		if Button Plus pressed:
 			<form> ... </form>
 			Plus_Button
-			
-			
-			
+
+
+
 Änderung:
 	Zutat.Kalorien_pro_Einheit in Kalorien
-	
+
 Fehler:
 	Zutat.Menge sollte überflüssig sein.
 
 
-test
+Test
+
+Mal gucken, ob's ankommt
