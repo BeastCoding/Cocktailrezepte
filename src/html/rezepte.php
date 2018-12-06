@@ -1,8 +1,8 @@
-﻿<?php
+
+<?php
 include('module/header.php')
 ?>
-	<body>  
-		
+	<body>
 		<header class="obere_zeile">
 			<div class="obere_zeile_zentrum">
 				<div  class="obere_zeile_zentrum_linke_seite">
@@ -12,21 +12,19 @@ include('module/header.php')
 					Gruppe 5 Blawath/Kalembasi/Ulrich
 				</div>
 			</div>
-		</header>  
+		</header>
 		<?php
 		include('module/menu.php')
 		?>
 		<div class="space1"></div>
-		<section id="hauptteil">
-			
+		<section id="rezept_background" class="hauptteil">
 			<section id="hauptteil_schriftarten">
 				<div id="scharfgestochen">
 					<p><span class="pos">Die Seite zu den Cocktailrezepten ist noch in Bearbeitung</span></p>
-				</div> 
-			</section>	
-			
+				</div>
+			</section>
+
 		</section>
 <?php
 include('module/footer.php')
 ?>
-
