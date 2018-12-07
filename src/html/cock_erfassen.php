@@ -2,17 +2,6 @@
 include('module/header.php')
 ?>
 	<body>  
-		
-		<header class="obere_zeile">
-			<div class="obere_zeile_zentrum">
-				<div  class="obere_zeile_zentrum_linke_seite">
-					Projektseminar Web-Development --- Dozentin: Lisa Beutelspacher
-				</div>
-				<div class="obere_zeile_zentrum_rechte_seite">
-					Gruppe 5 Blawath/Kalembasi/Ulrich
-				</div>
-			</div>
-		</header>  
 		<?php
 		include('module/menu.php')
 		?>
@@ -193,6 +182,50 @@ include('module/header.php')
 				</fieldset>
 				<fieldset class="fieldset-auto-width">
 					<legend>Cocktailart</legend> 
+					<?php
+						$servername = "localhost";
+						$username = "pswd18_5";
+						$password = "tFTqiEZO";
+						$db = "pswd18_5";
+					try {
+							$conn = new PDO("mysql:host=$servername;dbname=$db;", $username, $password);
+							// set the PDO error mode to exception
+							$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+							echo "Connected successfully";
+							}
+						catch(PDOException $e)
+							{
+							echo "Connection failed: " . $e->getMessage();
+							}
+							
+
+						$sql  = 'SELECT *  FROM `Kategorie`';
+						foreach ($conn->query($sql) as $row) {
+							switch				 ($row['ID'])
+							{
+								case 1:
+									$wert = "long";
+								break;
+								case 2:
+									$wert = "short";
+								break;
+								case 3:
+									$wert = "hot";
+								break;
+								case 4:
+									$wert = "bowle";
+								break;
+								case 5:
+									$wert = "shoot";
+								break;
+								case 6:
+									$wert = "sekt";
+								break;
+							}
+						   echo $row['ID']."<br />";
+						   echo "<input type='checkbox' name='art' value= " . $wert . ">" . $row['Cocktailart'] . "<br>";
+						}
+					?> 
 					<input type="checkbox" name="art" value="long">Longdrink<br>
 					<input type="checkbox" name="art" value="short">Shortdrink<br>
 					<input type="checkbox" name="art" value="hot"> Hotdrink<br>

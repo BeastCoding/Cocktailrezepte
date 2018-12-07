@@ -1,8 +1,8 @@
 
 /* hauptbereich */
 #hauptteil {
-	
-	background: url(../bilder/hintergrund_cock_erf.jpg) 100%; 
+	/*   background: url(../../img/hintergrund_rezepte.jpg) 100%; */
+	     background: url(../img/hintergrund_cock_erf.jpg) 100%; 
 	background-opacity: 0.5;	
 }
 
