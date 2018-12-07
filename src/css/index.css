@@ -4,7 +4,7 @@
 	width: 1080px;
 	height: 600px;  
 	margin: 0 auto; 
-	background: url(../../img/startbild.jpg) ;    
+	background: url(../img/startbild.jpg) ;    
 	
 }
 
@@ -159,7 +159,7 @@
 		
 @media screen and (max-width: 500px) {
 #hauptteil {
-	background: url(../bilder/startbild.jpg)  50%;   
+	background: url(../img/startbild.jpg)  50%;   
 }
 #ueberschrift2 {
 	top: 28%;   
