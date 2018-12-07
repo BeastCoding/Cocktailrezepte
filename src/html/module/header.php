@@ -3,44 +3,44 @@ $page = $_SERVER['PHP_SELF'];
 $title = 'default';
 $indiv_css = 'default';
 $gener_css = 'default';
-
-// Choose title for the different pages  
+echo $page;
+// Choose title for the different pages
 switch($page){
-	case '/dashboard/Cocktails/src/index.php': 
-		$title = 'Cocktails'; 
+	case '/dashboard/cocktail/src/index.php':
+		$title = 'Cocktails';
 		$gener_css='css/general.css';
 		$indiv_css='css/index.css';
 		break;
-	case '/dashboard/Cocktails/src/html/cock_erfassen.php': 
-		$title = 'Erfassung'; 
+	case '/dashboard/cocktail/src/html/cock_erfassen.php':
+		$title = 'Erfassung';
 		$gener_css='../css/general.css';
 		$indiv_css='../css/cock_erfassen.css';
 		break;
-	case '/dashboard/Cocktails/src/html/er-modell.php': 
+	case '/dashboard/cocktail/src/html/er-modell.php':
 		$title = 'ER-Modell';
 		$gener_css='../css/general.css';
 		$indiv_css='../css/er_modell.css';
 		break;
-	case '/dashboard/Cocktails/src/html/impressum.php': 
-		$title = 'Impressum'; 
+	case '/dashboard/cocktail/src/html/impressum.php':
+		$title = 'Impressum';
 		$gener_css='../css/general.css';
 		$indiv_css='../css/impressum.css';
 		break;
-	case '/dashboard/Cocktails/src/html/kontakt.php': 
-		$title = 'Kontakte'; 
+	case '/dashboard/cocktail/src/html/kontakt.php':
+		$title = 'Kontakte';
 		$gener_css='../css/general.css';
 		$indiv_css='../css/kontakt.css';
 		break;
-	case '/dashboard/Cocktails/src/html/rel_modell.php': 
-		$title = 'Relations Modell'; 
+	case '/dashboard/cocktail/src/html/rel_modell.php':
+		$title = 'Relations Modell';
 		$gener_css='../css/general.css';
 		$indiv_css='../css/rel_modell.css';
 		break;
-	case '/dashboard/Cocktails/src/html/rezepte.php': 
+	case '/dashboard/cocktail/src/html/rezepte.php':
 		$title = 'Rezepte';
 		$gener_css='../css/general.css';
-		$indiv_css='../css/rezepte.css';		
-		break;	
+		$indiv_css='../css/rezepte.css';
+		break;
 }
 
 // header with individual title
