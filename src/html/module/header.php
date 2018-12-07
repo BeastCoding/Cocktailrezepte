@@ -3,7 +3,7 @@ $page = $_SERVER['PHP_SELF'];
 $title = 'default';
 $indiv_css = 'default';
 $gener_css = 'default';
-echo $page;
+
 // Choose title for the different pages
 switch($page){
 	case '/dashboard/cocktail/src/index.php':
