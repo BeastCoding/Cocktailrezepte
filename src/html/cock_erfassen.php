@@ -10,7 +10,7 @@ include('module/pdo_zugang.php');
 		?>
 	<div class="space1"></div>
 	<section id="hauptteil">
-		<form method="get">
+		<form method="get" action="module/db_insert.php">
 
 			<!---------------------- Cocktailname ---------------------->
 			<fieldset>
@@ -36,7 +36,7 @@ include('module/pdo_zugang.php');
 					<input class="clonedInputZutat" type="text" name="zutat" id="zutatenfeld_1">
 					<!------------------------------------------------------------------------->
 					<label>Einheit:</label>
-					<select class="cloneInputEinheit" name="Einheit" size="1" id="einheiten_1">
+					<select class="cloneInputEinheit" name="einheit" size="1" id="einheiten_1">
 						<option class="feldgroesse" alue="e11">Gramm</option>
 						<option class="feldgroesse" value="e12">cl</option>
 						<option class="feldgroesse" value="e13">Stück</option>
@@ -46,7 +46,7 @@ include('module/pdo_zugang.php');
 						<option class="feldgroesse" value="e17">EL</option>
 					</select>
 					<label>Menge:</label>
-					<input class="cloneInputMenge" type="text" name="menge1" id="mengefeld_1">
+					<input class="cloneInputMenge" type="number" name="menge1" id="mengefeld_1">
 				</div>
 				<br>
 				<button id="btnAdd" type="button">+</button>
@@ -96,7 +96,7 @@ include('module/pdo_zugang.php');
 									$wert = "bitter";
 								break;
 							}
-						   echo "<input type='checkbox' name='art' value= " . $wert . ">" . $row['Geschmacksrichtung'] . "<br>";
+						   echo "<input multiple type='checkbox' name='cocktailgeschmack[]' value= " . $wert . ">" . $row['Geschmacksrichtung'] . "<br>";
 						}
 					?>
 				<br>
@@ -148,7 +148,7 @@ include('module/pdo_zugang.php');
 									$wert = "Tiki-Mug";
 								break;
 							}
-						   echo "<input type='checkbox' name='art' value= " . $wert . ">" . $row['Glastyp'] . "<br>";
+						   echo "<input type='checkbox' name='cocktailglas[]' value= " . $wert . ">" . $row['Glastyp'] . "<br>";
 						}
 					?>
 				<br>
@@ -182,7 +182,7 @@ include('module/pdo_zugang.php');
 									$wert = "sekt";
 								break;
 							}
-						   echo "<input type='radio' name='art' value= " . $wert . ">" . $row['Cocktailart'] . "<br>";
+						   echo "<input type='radio' name='cocktailart' value= " . $wert . ">" . $row['Cocktailart'] . "<br>";
 						}
 					?>
 				<br>
@@ -217,7 +217,7 @@ include('module/pdo_zugang.php');
 									$wert = "Minzezweig";
 								break;
 							}
-						   echo "<input type='checkbox' name='art' value= " . $wert . ">" . $row['Dekosorte'] . "<br>";
+						   echo "<input type='checkbox' name='dekoration[]' value= " . $wert . ">" . $row['Dekosorte'] . "<br>";
 						}
 					?>
 				<br>
@@ -248,7 +248,7 @@ include('module/pdo_zugang.php');
 									$wert = "Corpse Reviver";
 								break;
 							}
-						   echo "<input type='checkbox' name='art' value= " . $wert . ">" . $row['Trinkanlass'] . "<br>";
+						   echo "<input type='checkbox' name='trinkanlass[]' value= " . $wert . ">" . $row['Trinkanlass'] . "<br>";
 						}
 					?>
 				<br>
@@ -259,15 +259,15 @@ include('module/pdo_zugang.php');
 			<!---------------------- Alkoholgehalt ---------------------->
 			<fieldset class="fieldset-auto-width">
 				<legend>Alkoholgehalt</legend>
-				<input type="radio" name="alkohol" value="frei">alkoholfrei<br>
-				<input type="radio" name="alkohol" value="maessig">mäßig<br>
-				<input type="radio" name="alkohol" value="normal">normal<br>
-				<input type="radio" name="alkohol" value="stark">stark<br>
+				<input type="radio" name="alkoholgehalt" value="frei">alkoholfrei<br>
+				<input type="radio" name="alkoholgehalt" value="maessig">mäßig<br>
+				<input type="radio" name="alkoholgehalt" value="normal">normal<br>
+				<input type="radio" name="alkoholgehalt" value="stark">stark<br>
 				<br>
 			</fieldset>
 			<!---------------------- Alkoholgehalt ---------------------->
 
-			<input type="Submit" name="speichern" value="speichern">
+			<input type="Submit" value="Absenden">
 		</form>
 	</section>
 
