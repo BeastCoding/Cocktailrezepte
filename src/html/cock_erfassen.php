@@ -3,6 +3,7 @@ include('module/header.php');
 include('module/pdo_zugang.php');
 ?>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
 <body>
 	<?php
@@ -16,7 +17,7 @@ include('module/pdo_zugang.php');
 			<fieldset>
 				<legend>Einen neuen Cocktail kreieren</legend>
 				Name des Cocktails:
-				<input type="text" name="cocktailname">
+				<input type="text" name="cocktailname" required>
 			</fieldset>
 			<!---------------------- Cocktailname ---------------------->
 
@@ -33,7 +34,7 @@ include('module/pdo_zugang.php');
 				<div id="input1" class="clonedInput">
 					<label>Zutat:</label>
 					<!------------------------------------------------------------------------->
-					<input class="clonedInputZutat" type="text" name="zutat" id="zutatenfeld_1">
+					<input class="clonedInputZutat" type="text" name="zutat" id="zutatenfeld_1" required>
 					<!------------------------------------------------------------------------->
 					<label>Einheit:</label>
 					<select class="cloneInputEinheit" name="einheit" size="1" id="einheiten_1">
@@ -46,7 +47,7 @@ include('module/pdo_zugang.php');
 						<option class="feldgroesse" value="e17">EL</option>
 					</select>
 					<label>Menge:</label>
-					<input class="cloneInputMenge" type="number" name="menge1" id="mengefeld_1">
+					<input class="cloneInputMenge" type="number" name="menge1" id="mengefeld_1" required>
 				</div>
 				<br>
 				<button id="btnAdd" type="button">+</button>
@@ -267,11 +268,11 @@ include('module/pdo_zugang.php');
 			</fieldset>
 			<!---------------------- Alkoholgehalt ---------------------->
 
-			<input type="Submit" value="Absenden">
+			<input type="Submit" value="Absenden" id="checkBtn">
 		</form>
 	</section>
 
-	<!---------------------- Zutat Addieren Script ---------------------->
+	<!---------------------- Zutat addieren Script ---------------------->
 	<script>
 		$('#btnAdd').click(function() {
 			var num = $('.clonedInput').length;
@@ -292,13 +293,15 @@ include('module/pdo_zugang.php');
 			$('#btnAdd').attr('disabled', false);
 			if (num - 1 == 1)
 				$('#btnDel').attr('disabled', 'disabled');
-			
+
 		});
 	</script>
-	<!---------------------- Zutat Addieren Script ---------------------->
-	<?php 
+	<!---------------------- Zutat addieren Script ---------------------->
+
+
+		<?php 
 	$conn = null;
 	?>
-	<?php
+		<?php
 include('module/footer.php')
 ?>

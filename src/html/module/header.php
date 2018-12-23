@@ -41,6 +41,11 @@ switch($page){
 		$gener_css='../css/general.css';
 		$indiv_css='../css/rezepte.css';
 		break;
+	case '/dashboard/cocktail/src/html/module/db_insert.php':
+		$title = 'Insert';
+		$gener_css='../../css/general.css';
+		$indiv_css='../../css/cock_erfassen.css';
+		break;
 }
 
 // header with individual title
