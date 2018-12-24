@@ -1,8 +1,7 @@
 <?php
 include('header.php');
 include('pdo_zugang.php');
-?>
-
+?>	
 <body>
 	<?php
 	include('menu.php')
@@ -44,56 +43,96 @@ include('pdo_zugang.php');
 				echo "Es muss mindestens ein Trinkanlass angegeben werden.";
 				echo "<a href='../cock_erfassen.php'>Zurück</a>";
 			} else{
+				
 				$alkoholgehalt = $_GET['alkoholgehalt'];
 				$statement = $conn->prepare($sql = "INSERT INTO `cocktail` (`ID`, `Name`, `Zubereitung`, `Alkohol`) VALUES (NULL, '$cocktailname', 'zubereitung', '$alkoholgehalt')");
 				$statement->execute();
+				
+				/*------------------------------ Anlass und Cocktail verbinden ------------------------------*/
+				foreach ($_GET['trinkanlass'] as $trinkanlass){
+					
+					$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
+					$cocktail_ID_abfrage->execute();
+					$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();/*Hier wird die ID des Cocktails gesucht*/
+
+					
+					$anlass_ID_abfragen = $conn->prepare("SELECT ID FROM `anlass` WHERE `Trinkanlass` LIKE '$trinkanlass'");
+					$anlass_ID_abfragen->execute();
+					$anlass_ID = $anlass_ID_abfragen->fetchColumn();
+					echo $anlass_ID;
+					
+					$statement_anlass = $conn->prepare("INSERT INTO `cocktail_anlass` (`CocktailID`, `AnlassID`) VALUES ('$cocktail_ID', '$anlass_ID')"); //Entity mit Relation verbinden
+					$statement_anlass->execute();
+				}
+				/*------------------------------ Anlass und Cocktail verbinden ------------------------------*/
+				
+				
+				
+				/*------------------------------ Geschmack und Cocktail verbinden ------------------------------*/
+				foreach ($_GET['cocktailgeschmack'] as $cocktailgeschmack){
+					
+					$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
+					$cocktail_ID_abfrage->execute();
+					$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();	/*Hier wird die ID des Cocktails gesucht*/
+					
+					$geschmack_ID_abfragen = $conn->prepare("SELECT ID FROM `geschmack` WHERE `Geschmacksrichtung` LIKE '$cocktailgeschmack'");
+					$geschmack_ID_abfragen->execute();
+					$geschmack_ID = $geschmack_ID_abfragen->fetchColumn();	/*Hier werden die ID der Geschmäcker gesucht*/
+
+					
+					$statement_geschmack = $conn->prepare("INSERT INTO `cocktail_geschmack` (`CocktailID`, `GeschmackID`) VALUES ('$cocktail_ID', '$geschmack_ID')");
+					$statement_geschmack->execute();	/*Relation zwischen Geschmack und Cocktail wird hergestellt.*/
+				}
+				/*------------------------------ Geschmack und Cocktail verbinden ------------------------------*/
+				
+				
+				
+				/*------------------------------ Glas und Cocktail verbinden ------------------------------*/
+				foreach ($_GET['cocktailglas'] as $cocktailglas){
+					
+					$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
+					$cocktail_ID_abfrage->execute();
+					$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();	/*Hier wird die ID des Cocktails gesucht*/
+					
+					$glas_ID_abfragen = $conn->prepare("SELECT ID FROM `glas` WHERE `Glastyp` LIKE '$cocktailglas'");
+					$glas_ID_abfragen->execute();
+					$glas_ID = $glas_ID_abfragen->fetchColumn();	/*Hier werden die ID der Gläser gesucht*/
+
+					
+					$statement_glas = $conn->prepare("INSERT INTO `cocktail_glas` (`CocktailID`, `GlasID`) VALUES ('$cocktail_ID', '$glas_ID')");
+					$statement_glas->execute();	/*Relation zwischen Glas und Cocktail wird hergestellt.*/
+				}
+				/*------------------------------ Glas und Cocktail verbinden ------------------------------*/
+				
+				
+				
+				/*------------------------------ Dekoration und Cocktail verbinden ------------------------------*/
+				foreach ($_GET['dekoration'] as $dekoration){
+					
+					$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
+					$cocktail_ID_abfrage->execute();
+					$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();	/*Hier wird die ID des Cocktails gesucht*/
+					
+					$dekoration_ID_abfragen = $conn->prepare("SELECT ID FROM `einzeldeko` WHERE `Dekosorte` LIKE '$dekoration'");
+					$dekoration_ID_abfragen->execute();
+					$dekoration_ID = $dekoration_ID_abfragen->fetchColumn();	/*Hier werden die ID der Dekorationen gesucht*/
+
+					
+					$statement_deko = $conn->prepare("INSERT INTO `cocktail_einzeldeko` (`CocktailID`, `EinzeldekoID`) VALUES ('$cocktail_ID', '$dekoration_ID')");
+					$statement_deko->execute();	/*Relation zwischen Dekoration und Cocktail wird hergestellt.*/
+				}
+				/*------------------------------ Dekoration und Cocktail verbinden ------------------------------*/
+				
+				
+				
+				
 				echo "<h1>" . "Cocktail Erfolgreich in die Datenbank eingefügt!" . "</h1>" . "<br>";
 				
 			}
 		}
 
-
-		/*------------------------------ Geschmack call ------------------------------*/
-		if(isset($_GET['cocktailgeschmack'])) {
-			echo "Dieses Cocktail schmeckt: ";
-				foreach ($_GET['cocktailgeschmack'] as $cocktailgeschmack)
-					echo $cocktailgeschmack . ", ";
-		}
-		/*------------------------------ Geschmack call ------------------------------*/	
-
-
 		echo "<br>";
-
-
-		/*------------------------------ Glas call ------------------------------*/
-		if(isset($_GET['cocktailglas'])) {
-			echo "Dieses Cocktail kann in folgenden Gläsern serviert werden: ";
-				foreach ($_GET['cocktailglas'] as $cocktailglas)
-					echo $cocktailglas . ", ";
-		}
-		/*------------------------------ Glas call ------------------------------*/
-
-		echo "<br>";
-
-		/*------------------------------ Dekoration call ------------------------------*/
-		if(isset($_GET['dekoration'])) {
-			echo "Dieses Cocktail kann mit folgenden Dekorationen serviert werden: ";
-				foreach ($_GET['dekoration'] as $dekoration)
-					echo $dekoration . ", ";
-		}
-		/*------------------------------ Dekoration call ------------------------------*/
-
-		echo "<br>";
-
-		/*------------------------------ Anlass call ------------------------------*/
-		if(isset($_GET['trinkanlass'])) {
-			echo "Dieses Cocktail kann zu folgenden Anlässen serviert werden: ";
-				foreach ($_GET['trinkanlass'] as $trinkanlass)
-					echo $trinkanlass . ", ";
-		}
-		/*------------------------------ Anlass call ------------------------------*/
-
-				/**/
+	
 		?>
 	</section>
 </body>
