@@ -41,10 +41,10 @@ switch($page){
 		$gener_css='../css/general.css';
 		$indiv_css='../css/rezepte.css';
 		break;
-	case '/dashboard/cocktail/src/html/module/db_insert.php':
-		$title = 'Insert';
-		$gener_css='../../css/general.css';
-		$indiv_css='../../css/cock_erfassen.css';
+	case '/dashboard/cocktail/src/html/db_insert.php':
+		$title = 'Erfassung';
+		$gener_css='../css/general.css';
+		$indiv_css='../css/cock_erfassen.css';
 		break;
 }
 

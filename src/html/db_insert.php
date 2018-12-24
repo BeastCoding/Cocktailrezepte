@@ -1,21 +1,14 @@
 <?php
-include('header.php');
-include('pdo_zugang.php');
+include('module/header.php');
+include('module/pdo_zugang.php');
 ?>	
 <body>
 	<?php
-	include('menu.php')
+	include('module/menu.php')
 	?>
 	<section id="hauptteil">
 		<?php
-
-		$zutat = $_GET['zutat'];
-		$einheit = $_GET['einheit'];
-		$menge1 = $_GET['menge1'];
-		//$cocktailart = $_GET['cocktailart'];
-
-
-
+		
 		$cocktailname = $_GET['cocktailname'];
 		$statement = $conn->prepare("SELECT *  FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
 		$statement->execute(array('Name' => $cocktailname));
@@ -125,12 +118,34 @@ include('pdo_zugang.php');
 				
 				
 				
+				/*------------------------------ Kategorie und Cocktail verbinden ------------------------------*/
+
+				$cocktailart = $_GET['cocktailart'];
+				$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
+				$cocktail_ID_abfrage->execute();
+				$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();	/*Hier wird die ID des Cocktails gesucht*/
+
+				$cocktailart_ID_abfragen = $conn->prepare("SELECT ID FROM `kategorie` WHERE `Cocktailart` LIKE '$cocktailart'");
+				$cocktailart_ID_abfragen->execute();
+				$cocktailart_ID = $cocktailart_ID_abfragen->fetchColumn();	/*Hier werden die ID der Kategorie gesucht*/
+
+
+				$statement_art = $conn->prepare("INSERT INTO `cocktail_kategorie` (`CocktailID`, `KategorieID`) VALUES ('$cocktail_ID', '$cocktailart_ID')");
+				$statement_art->execute();	/*Relation zwischen Kategorie und Cocktail wird hergestellt.*/
 				
+				/*------------------------------ Kategorie und Cocktail verbinden ------------------------------*/
+				
+				
+				/*------------------------------ Zutat einfügen ------------------------------*/
+				$zutat = $_GET['zutat'];
+				$einheit = $_GET['einheit'];
+				$menge1 = $_GET['menge1'];
+				/*------------------------------ Zutat einfügen ------------------------------*/
 				echo "<h1>" . "Cocktail Erfolgreich in die Datenbank eingefügt!" . "</h1>" . "<br>";
 				
 			}
 		}
-
+	
 		echo "<br>";
 	
 		?>
@@ -138,5 +153,5 @@ include('pdo_zugang.php');
 </body>
 
 <?php
-include('footer.php')
+include('module/footer.php')
 ?>

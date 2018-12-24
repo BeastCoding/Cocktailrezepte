@@ -11,7 +11,7 @@ include('module/pdo_zugang.php');
 		?>
 	<div class="space1"></div>
 	<section id="hauptteil">
-		<form method="get" action="module/db_insert.php">
+		<form method="get" action="db_insert.php">
 
 			<!---------------------- Cocktailname ---------------------->
 			<fieldset>
@@ -165,22 +165,22 @@ include('module/pdo_zugang.php');
 							switch				 ($row['ID'])
 							{
 								case 1:
-									$wert = "long";
+									$wert = "Longdrink";
 								break;
 								case 2:
-									$wert = "short";
+									$wert = "Shortdrink";
 								break;
 								case 3:
-									$wert = "hot";
+									$wert = "Hotdrink";
 								break;
 								case 4:
-									$wert = "bowle";
+									$wert = "Bowle";
 								break;
 								case 5:
-									$wert = "shoot";
+									$wert = "Shooter";
 								break;
 								case 6:
-									$wert = "sekt";
+									$wert = "Sektcocktail";
 								break;
 							}
 						   echo "<input type='radio' name='cocktailart' value= " . $wert . ">" . $row['Cocktailart'] . "<br>";
