@@ -14,12 +14,14 @@ include('module/header.php')
 						wurden mit größtmöglicher Sorgfalt erstellt. Der Anbieter dieser Webseite
 						übernimmt jedoch keine Gewähr für die Richtigkeit und Aktualität der
 						bereitgestellten kostenlosen und frei zugänglichen journalistischen
-						Ratgeber und Nachrichten. Namentlich gekennzeichnete Beiträge geben die
-						Meinung des jeweiligen Autors und nicht immer die Meinung des Anbieters wieder.
+						Ratgeber und Nachrichten.
+					</span></p>
+					<p><span class="pos">
 						Allein durch den Aufruf der kostenlosen und frei zugänglichen Inhalte kommt
 						keinerlei Vertragsverhältnis zwischen dem Nutzer und dem Anbieter zustande,
 						insoweit fehlt es am Rechtsbindungswillen des Anbieters.
-						
+					</span></p>
+					<p><span class="pos">	
 						Die auf dieser Website veröffentlichten Inhalte unterliegen dem deutschen
 						Urheber- und Leistungsschutzrecht. Jede vom deutschen Urheber- und Leistungsschutzrecht
 						nicht zugelassene Verwertung bedarf der vorherigen schriftlichen Zustimmung des Anbieters
@@ -30,8 +32,9 @@ include('module/header.php')
 						Inhalte oder kompletter Seiten ist nicht gestattet und strafbar. Lediglich die
 						Herstellung von Kopien und Downloads für den persönlichen, privaten und nicht
 						kommerziellen Gebrauch ist erlaubt.
-
-Die Darstellung dieser Website in fremden Frames ist nur mit schriftlicher Erlaubnis zulässig.
+					</span></p>
+					<p><span class="pos">
+						Die Darstellung dieser Website in fremden Frames ist nur mit schriftlicher Erlaubnis zulässig.
 						
 						
 						</span></p>

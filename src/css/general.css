@@ -40,11 +40,11 @@ a {
 
 
 nav {
-	display:inline;
+/*	display:inline;  */
 		
 }
 nav ul {
-	display:block;
+/*	display:block;   */
 	
 }
 nav ul li {
@@ -148,19 +148,62 @@ footer {
 Responsive Webdesign
 *******************************************/
 
+/* Bildschirmbreite maximal 1020px */
+@media screen and (max-width: 1050px) {
+	body {
+		font-size:90%;
+	}
+}
 
 /* Bildschirmbreite maximal 950px */
 @media screen and (max-width: 950px) {
+	body {
+		font-size:80%;
+	}
+}
+
+/* Bildschirmbreite maximal 850px*/
+@media screen and (max-width: 850px) {
+	body {
+		font-size:70%;
+	}
+}
+
+/* Bildschirmbreite maximal 750px*/
+@media screen and (max-width: 750px) {
 	body {
 		font-size:60%;
 	}
 }
 
-/* Bildschirmbreite maximal 700px*/
-@media screen and (max-width: 700px) {
+/* Bildschirmbreite maximal 650px*/
+@media screen and (max-width: 650px) {
 	body {
 		font-size:50%;
 	}
+}
+
+/* Bildschirmbreite maximal 550px*/
+@media screen and (max-width: 550px) {
+	body {
+		font-size:40%;
+	}
+}
+
+/* Bildschirmbreite maximal 480px*/
+@media screen and (max-width: 480px) {
+	body {
+		font-size:30%;
+	}
+}
+
+/* Bildschirmbreite maximal 380px*/
+@media screen and (max-width: 480px) {
+	nav ul li {
+	display:block;  
+	font-size:130%;    
+}
+
 }
 /* Bildschirmbreite maximal 500px*/
 @media screen and (max-width: 500px) {

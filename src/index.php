@@ -16,7 +16,8 @@ include('html/module/header.php')
 		<div class="zweite_zeile">
 			<div class="container_nav">
 				<nav>
-					<ul class="ebene0">
+			<!--		<ul class="ebene0">   -->
+					<ul>
 						<a href="index.php"><img class="logo" src="img/icon.jpg" alt="Logo" /></a>
 						<li><a href="index.php">Home</a></li>
 						<li><a href="html/rezepte.php">Rezept suchen</a></li>

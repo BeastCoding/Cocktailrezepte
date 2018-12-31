@@ -2,7 +2,8 @@
 /* hauptbereich */
 #hauptteil {
 	
-	background: url(../bilder/hintergrund_impressum.jpg) 100%; 
+	 
+	background: url(../img/hintergrund_impressum.jpg) 100%;
 	/*
 	width: 1080px;
 	background-size: 1080px; 
@@ -40,7 +41,7 @@
 	}	
 	
 span.pos {
-	position: absolute;
+	position: relative;
 	top: 8px;
 	left: 30px;
 	
