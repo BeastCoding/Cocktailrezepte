@@ -2,8 +2,12 @@
 /* hauptbereich */
 #hauptteil {
 	
-	 
+	width: 1080px;
+	height: 600px;
+	margin: 0 auto;
 	background: url(../img/hintergrund_impressum.jpg) 100%;
+	overflow-y: scroll;
+
 	/*
 	width: 1080px;
 	background-size: 1080px; 
@@ -20,12 +24,15 @@
 
 #hauptteil_schriftarten {
 	
-	width: 1080px;
+	/* width: 1080px;
 	background-size: 1080px; 
-	height: 600px;
+	height: 600px; */
+	
 	margin: 0 auto; 
 	font-size: 1em;
 	
+   
+	text-align: left;
 }
 
 #scharfgestochen {
@@ -44,6 +51,18 @@ span.pos {
 	position: relative;
 	top: 8px;
 	left: 30px;
+	text-align: left;
+	}
+span.imp {
+	position: relative;
+	top: 8px;
+	left: 30px;
+	/* hyphens */
+   -moz-hyphens: auto;
+   -o-hyphens: auto;
+   -webkit-hyphens: auto;
+   -ms-hyphens: auto;
+   hyphens: auto;
 	
 	}
 /******************************************

@@ -145,12 +145,12 @@
 			  -o-animation: laufschrift 15s infinite linear;
 				 animation: laufschrift 15s infinite linear;
 		}
-
+/*
 @-webkit-keyframes laufschrift {
 	0%			{-webkit-transform: translate(700px,0px); }
 	100%		{-webkit-transform: translate(-400px, 0px); 	 }
 }
-
+/*
 @media screen and (max-width: 950px) {
 #bullet {
 	left: 50%;
@@ -172,5 +172,63 @@
 	left: 50%;
 	top:  32%;
 	width: 35%;
+	}
+}
+
+*/
+/* Bildschirmbreite maximal 950px*/
+
+@media screen and (max-width: 950px) {
+	
+	#bullet {
+	
+	font-size: 1.5em;
+	top: 0%;
+	
+	
+	}
+}
+@media screen and (max-width: 850px) {
+	#ueberschrift1 {
+	
+	font-size: 4em; 
+	top: -1.6%;
+	left: 2%;
+	
+		}
+	#bullet {
+	
+	font-size: 1.5em;
+	left: 70%;
+	width: 60%;
+	height: 5%;
+	
+	}
+}
+@media screen and (max-width: 750px) {
+	#bullet {
+	left: 50%;
+	}
+}
+@media screen and (max-width: 550px) {
+	#bullet {
+	left: 30%;
+	width: 70%;
+	}
+	#ueberschrift2  {
+		font-size: 2em;
+		}
+	#ueberschrift3  {
+		font-size: 2em;
+	    top: 39%; */
+	}
+	#laufschrift {
+		left: 30%;
+	}
+}
+@media screen and (max-width: 350px) {
+	#bullet {
+	left: 0%;
+	
 	}
 }
