@@ -8,26 +8,10 @@
 	background: url(../img/hintergrund_impressum.jpg) 100%;
 	overflow-y: scroll;
 
-	/*
-	width: 1080px;
-	background-size: 1080px; 
-	background-repeat: no-repeat;
-	height: 600px;
-	margin: 0 auto; 
-	*/
-}
-/*
-.space1 {
-	height: 22px;
-}
-*/
 
 #hauptteil_schriftarten {
 	
-	/* width: 1080px;
-	background-size: 1080px; 
-	height: 600px; */
-	
+
 	margin: 0 auto; 
 	font-size: 1em;
 	
@@ -42,9 +26,7 @@
 	width: 90% ;  /*1080px;  */
 	height: 3em;   /*10px; */
 	color: white;/* color:#000000;  */
-	/* background-color:#ffffff; */
-/*	text-shadow:0.1em 0.1em 0 #bcbcbc, 0.01em 0.01em 0 #9c9c9c;  */
-/*	text-shadow:0.1em 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;  */
+
 	}	
 	
 span.pos {

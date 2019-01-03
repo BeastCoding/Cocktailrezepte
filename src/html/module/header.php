@@ -19,7 +19,7 @@ switch($page){
 	case '/dashboard/cocktail/src/html/er-modell.php':
 		$title = 'ER-Modell';
 		$gener_css='../css/general.css';
-		$indiv_css='../css/er_modell.css';
+		$indiv_css='../css/er-modell.css';
 		break;
 	case '/dashboard/cocktail/src/html/impressum.php':
 		$title = 'Impressum';
