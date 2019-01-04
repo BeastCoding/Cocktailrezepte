@@ -53,7 +53,7 @@ include('module/header.php')
 					</span></p>
 					<p><span class="pos">
 					Ausdrücklich können alle Fotos auf Pexels kostenlos für kommerzielle und nichtkommerzielle Zwecke verwendet werden.
-					Eine Namensnennung ist nicht erforderlich. Dem Fotografen oder Pexels zu erwähnen ist nicht notwendig.
+					Eine Namensnennung ist nicht erforderlich. Eine Erwähnung des Fotografen oder Pexels ist nicht notwendig.
 					</span></p>
 					<p><span class="pos">
 					Die Fotos dürfen bearbeitet werden, eine kreative Veränderung der Fotos ist zum Teil erfolgt. 
