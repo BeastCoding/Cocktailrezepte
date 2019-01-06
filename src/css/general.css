@@ -170,11 +170,17 @@ Responsive Webdesign
 	nav ul li {
 		font-size:70%;
 	}
+	.copyright_text {
+		font-size:70%;
+	}
 }
 
 /* Bildschirmbreite maximal 750px*/
 @media screen and (max-width: 750px) {
 	nav ul li {
+		font-size:60%;
+	}
+	.copyright_text {
 		font-size:60%;
 	}
 }
@@ -188,6 +194,9 @@ Responsive Webdesign
 	.obere_zeile {
 		font-size:50%;
 	}
+	.copyright_text {
+		font-size:50%;
+	}
 }
 
 /* Bildschirmbreite maximal 570px*/
@@ -199,18 +208,19 @@ Responsive Webdesign
 
 
 
-/* Bildschirmbreite maximal 480px*/
-@media screen and (max-width: 480px) {
-	nav ul li {
-	display:block;  
-	/* font-size:160%;    
-}
-
-}
 /* Bildschirmbreite maximal 500px*/
 @media screen and (max-width: 500px) {
+	nav ul li {
+	display:block;  
+	   
+	}
+	.striche {
+		color: white;
+	}
+	
 	.copyright_text {
 		color: white;
+		font-size:1%;
 	}
 	.copyright_cont {
 	font-size:0.1em;

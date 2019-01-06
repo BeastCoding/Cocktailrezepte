@@ -145,7 +145,7 @@
 			  -o-animation: laufschrift 15s infinite linear;
 				 animation: laufschrift 15s infinite linear;
 		}
-/*
+
 @-webkit-keyframes laufschrift {
 	0%			{-webkit-transform: translate(700px,0px); }
 	100%		{-webkit-transform: translate(-400px, 0px); 	 }

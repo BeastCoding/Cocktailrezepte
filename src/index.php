@@ -85,7 +85,7 @@ include('html/module/header.php')
 			<!--			<li><a href="index.php">Home</a></li>
 						<li>--</li>  -->
 						<li><a href="html/impressum.php">Rechtshinweise</a></li>
-						<li>--</li>
+						<li class="striche">---</li>
 						<li><a href="html/kontakt.php">Kontakt</a></li>
 					</ul>
 					
