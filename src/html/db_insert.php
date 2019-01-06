@@ -52,7 +52,6 @@ include('module/pdo_zugang.php');
 					$anlass_ID_abfragen = $conn->prepare("SELECT ID FROM `anlass` WHERE `Trinkanlass` LIKE '$trinkanlass'");
 					$anlass_ID_abfragen->execute();
 					$anlass_ID = $anlass_ID_abfragen->fetchColumn();
-					echo $anlass_ID;
 					
 					$statement_anlass = $conn->prepare("INSERT INTO `cocktail_anlass` (`CocktailID`, `AnlassID`) VALUES ('$cocktail_ID', '$anlass_ID')"); //Entity mit Relation verbinden
 					$statement_anlass->execute();
