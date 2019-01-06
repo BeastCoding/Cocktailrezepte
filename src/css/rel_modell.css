@@ -8,30 +8,79 @@
 
 	height: 600px;  
 	margin: 0 auto; 
+	overflow-y: scroll; 
 }
-
-.rel_modell {
+.ueberschrift {
+	display: flex;
+  align-items: center;
+}
+.relationen {
 	max-width: 1080px;
-	 height: 600px;
-	padding-top: 0.5em;
-	
-	overflow: scroll;
+	height: 300px;
+	padding: 0.3em;
+	margin: 0.5em;
+	border: 1px solid ;
+	border-color: silver;
+	border-width: 0.2em;
+	box-shadow: 0.2em 0.4em 0.3em blue; */
+	/* overflow: scroll;*/
+}
+.beziehungen {
+	max-width: 1080px;
+	height: 300px;
+	padding: 0.3em;
+	margin: 0.5em;
+	border: 1px solid ;
+	border-color: silver;
+	border-width: 0.2em;
+	box-shadow: 0.2em 0.4em 0.3em red; */
+	/* overflow: scroll;*/
+}
+.gruppe {
+	max-width: 1080px;
+	height: 40px;
+	padding: 0.3em;
+	margin: 0.5em;
+	border: 1px solid ;
+	border-color: silver;
+	border-width: 0.2em;
+	box-shadow: 0.2em 0.4em 0.3em green; */
+	/* overflow: scroll;*/
 }
 
-/* Bildschirmbreite maximal 500px*/
-@media screen and (max-width: 650px) {
+
+
+
+@media screen and (max-width: 1180px) {
+.ueberschrift {
+	height: 30px;
+	}
+.relationen {
+	height: 250px;
+	}
+.beziehungen {
+	height: 250px;
+	}
+.gruppe {
+	height: 30px;
+	}
+
+}
+
+@media screen and (max-width: 600px) {
+.ueberschrift {
+	height: 15px;
+	}
+.relationen {
+	height: 150px;
+	}
+.beziehungen {
+		height: 150px;
+	}
+.gruppe {
+	height: 20px;
+	}
 #hauptteil {
-	width: 540px;
-	height: 300px;
-	/* background: url(../bilder/hintergrund_informationen.jpg) 100%; */
-
+	height: 450px;  
+	}
 }
-
-.rel_modell {
-	height: 300px;
-	padding-top: 0.5em;
-	
-	overflow: scroll;
-}
-}
-
