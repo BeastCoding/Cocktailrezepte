@@ -175,7 +175,7 @@ include('module/pdo_zugang.php');
 						$zutat_ID = $zutat_ID_abfragen->fetchColumn();	/*Hier werden die ID der Zutaten gesucht*/
 
 
-						$statement_zutat = $conn->prepare("INSERT INTO `cocktail_zutat` (`CocktailID`, `ZutatID`, 'Menge') VALUES ('$cocktail_ID', '$zutat_ID', '$menge')");
+						$statement_zutat = $conn->prepare("INSERT INTO `cocktail_zutat` (`CocktailID`, `ZutatID`, `Menge`) VALUES ('$cocktail_ID', '$zutat_ID', '$menge')");
 						$statement_zutat->execute();	/*Relation zwischen Dekoration und Cocktail wird hergestellt.*/
 						/*------------------------------ Zutaten und Cocktail verbinden ------------------------------*/
 						
@@ -191,7 +191,7 @@ include('module/pdo_zugang.php');
 						$zutat_ID_abfragen->execute();
 						$zutat_ID = $zutat_ID_abfragen->fetchColumn();	/*Hier werden die ID der Zutaten gesucht*/
 
-						$statement_zutat = $conn->prepare("INSERT INTO `cocktail_zutat` (`CocktailID`, `ZutatID`, 'Menge') VALUES ('$cocktail_ID', '$zutat_ID', '$menge')");
+						$statement_zutat = $conn->prepare("INSERT INTO `cocktail_zutat` (`CocktailID`, `ZutatID`, `Menge`) VALUES ('$cocktail_ID', '$zutat_ID', '$menge')");
 						$statement_zutat->execute();	/*Relation zwischen Dekoration und Cocktail wird hergestellt.*/
 						/*------------------------------ Zutaten und Cocktail verbinden ------------------------------*/
 					}
