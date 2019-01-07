@@ -146,17 +146,55 @@ include('module/pdo_zugang.php');
 				//$menge1 = $_GET['menge1'];
 				//$statement_art = $conn->prepare("INSERT INTO `cocktail_kategorie` (`CocktailID`, `KategorieID`) VALUES ('$cocktail_ID', '$cocktailart_ID')");
 				//$statement_art->execute();	/*Relation zwischen Kategorie und Cocktail wird hergestellt.*/
+				
+				//$cocktailname = $_GET['cocktailname'];
+				//$statement = $conn->prepare("SELECT *  FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
+				//$statement->execute(array('Name' => $cocktailname));
+				//$suche = $statement->fetch();
+				
 				for($i=0; $i<$anzahl_zutat ;$i++){
 					$zutat  = $_GET['zutat'][$i];
 					$einheit = $_GET['einheit'][$i];
 					$menge = $_GET['menge'][$i];
 					
-					/*------------------------------ Zutaten einfügen ------------------------------*/
-					$statement_zutat_einfügen = $conn->prepare("INSERT INTO `zutat` (`Name`, `Menge`,`Einheit`) VALUES ('$zutat', '$menge','$einheit')");
-					$statement_zutat_einfügen->execute();	/*Zutat einfügen wenn nicht vorhanden.*/
-					/*------------------------------ Zutaten einfügen ------------------------------*/
-					
-					echo $zutat . " " . $einheit . " " . $menge . " " . "<br>";
+					$zutat_abfrage = $conn->prepare("SELECT *  FROM `zutat` WHERE `Name` LIKE '$zutat'");
+					$zutat_abfrage->execute(array('Name' => $zutat));
+					$suche_zutat = $zutat_abfrage->fetch();
+					if($suche_zutat == false) {
+						/*------------------------------ Zutaten einfügen ------------------------------*/
+						$statement_zutat_einfügen = $conn->prepare("INSERT INTO `zutat` (`Name`, `Menge`,`Einheit`) VALUES ('$zutat', '$menge','$einheit')");
+						$statement_zutat_einfügen->execute();	/*Zutat einfügen wenn nicht vorhanden.*/
+						
+						/*------------------------------ Zutaten und Cocktail verbinden ------------------------------*/
+						$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
+						$cocktail_ID_abfrage->execute();
+						$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();	/*Hier wird die ID des Cocktails gesucht*/
+
+						$zutat_ID_abfragen = $conn->prepare("SELECT ID FROM `zutat` WHERE `Name` LIKE '$zutat'");
+						$zutat_ID_abfragen->execute();
+						$zutat_ID = $zutat_ID_abfragen->fetchColumn();	/*Hier werden die ID der Zutaten gesucht*/
+
+
+						$statement_zutat = $conn->prepare("INSERT INTO `cocktail_zutat` (`CocktailID`, `ZutatID`, 'Menge') VALUES ('$cocktail_ID', '$zutat_ID', '$menge')");
+						$statement_zutat->execute();	/*Relation zwischen Dekoration und Cocktail wird hergestellt.*/
+						/*------------------------------ Zutaten und Cocktail verbinden ------------------------------*/
+						
+						/*------------------------------ Zutaten einfügen ------------------------------*/
+					}
+					else{
+						/*------------------------------ Zutaten und Cocktail verbinden ------------------------------*/
+						$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
+						$cocktail_ID_abfrage->execute();
+						$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();	/*Hier wird die ID des Cocktails gesucht*/
+
+						$zutat_ID_abfragen = $conn->prepare("SELECT ID FROM `zutat` WHERE `Name` LIKE '$zutat'");
+						$zutat_ID_abfragen->execute();
+						$zutat_ID = $zutat_ID_abfragen->fetchColumn();	/*Hier werden die ID der Zutaten gesucht*/
+
+						$statement_zutat = $conn->prepare("INSERT INTO `cocktail_zutat` (`CocktailID`, `ZutatID`, 'Menge') VALUES ('$cocktail_ID', '$zutat_ID', '$menge')");
+						$statement_zutat->execute();	/*Relation zwischen Dekoration und Cocktail wird hergestellt.*/
+						/*------------------------------ Zutaten und Cocktail verbinden ------------------------------*/
+					}
 				}
 				/*------------------------------ Zutaten ------------------------------*/
 				

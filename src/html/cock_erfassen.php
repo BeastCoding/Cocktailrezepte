@@ -38,7 +38,7 @@ include('module/pdo_zugang.php');
 					<!------------------------------------------------------------------------->
 					<label>Einheit:</label>
 					<select class="cloneInputEinheit" name="einheit[]" size="1" id="einheiten_1">
-						<option class="feldgroesse" alue="e11">Gramm</option>
+						<option class="feldgroesse" value="e11">Gramm</option>
 						<option class="feldgroesse" value="e12">cl</option>
 						<option class="feldgroesse" value="e13">Stück</option>
 						<option class="feldgroesse" value="e14">Scheibe</option>
