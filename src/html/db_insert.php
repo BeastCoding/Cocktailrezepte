@@ -21,29 +21,30 @@ include('module/pdo_zugang.php');
 		} else{
 			if(!isset($_GET['alkoholgehalt'])) {
 				echo "Sie haben vergessen den Alkoholgehalt anzugeben." . "<br>";
-				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
+				echo "<a href='cock_erfassen.php'>Zurück</a>";
 			} elseif(!isset($_GET['cocktailgeschmack'])){
 				echo "Es muss mindestens eine Geschmachsart angegeben werden.";
-				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
+				echo "<a href='cock_erfassen.php'>Zurück</a>";
 			} elseif(!isset($_GET['cocktailglas'])){
 				echo "Es muss mindestens ein Cocktailglas angegeben werden.";
-				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
+				echo "<a href='cock_erfassen.php'>Zurück</a>";
 			} elseif(!isset($_GET['cocktailart'])){
 				echo "Es muss ein Cocktailart angegeben werden.";
-				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
+				echo "<a href='cock_erfassen.php'>Zurück</a>";
 			} elseif(!isset($_GET['dekoration'])){
 				echo "Es muss mindestens eine Dekoration angegeben werden.";
-				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
+				echo "<a href='cock_erfassen.php'>Zurück</a>";
 			} elseif(!isset($_GET['trinkanlass'])){
 				echo "Es muss mindestens ein Trinkanlass angegeben werden.";
-				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
+				echo "<a href='cock_erfassen.php'>Zurück</a>";
 			} elseif($anzahl_zutat < 0){
 				echo "Bitte mindestens eine Zutat eingeben!"."<br>";
-				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
+				echo "<a href='cock_erfassen.php'>Zurück</a>";
 			} else{
 				
+				$zubereitung = $_GET['Zubereitung'];
 				$alkoholgehalt = $_GET['alkoholgehalt'];
-				$statement = $conn->prepare($sql = "INSERT INTO `cocktail` (`ID`, `Name`, `Zubereitung`, `Alkohol`) VALUES (NULL, '$cocktailname', 'zubereitung', '$alkoholgehalt')");
+				$statement = $conn->prepare($sql = "INSERT INTO `cocktail` (`ID`, `Name`, `Zubereitung`, `Alkohol`) VALUES (NULL, '$cocktailname', '$zubereitung', '$alkoholgehalt')");
 				$statement->execute();
 				
 				/*------------------------------ Anlass und Cocktail verbinden ------------------------------*/
@@ -197,13 +198,7 @@ include('module/pdo_zugang.php');
 				
 				/*------------------------------ Zutaten ------------------------------*/
 				
-				/*------------------------------ Zubereitung einfügen ------------------------------*/
 				
-				$zubereitung = $_GET['Zubereitung'];
-				$statement = $conn->prepare($sql = "INSERT INTO `cocktail` (`ID`, `Name`, `Zubereitung`, `Alkohol`) VALUES (NULL, '$cocktailname', '$zubereitung', '$alkoholgehalt')");
-				$statement->execute();
-				
-				/*------------------------------ Zubereitung einfügen ------------------------------*/
 								
 				/*------------------------------ Success ------------------------------*/
 				
