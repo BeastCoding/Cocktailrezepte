@@ -1,7 +1,8 @@
 <?php
 include('module/header.php');
 include('module/pdo_zugang.php');
-?>	
+?>
+
 <body>
 	<?php
 	include('module/menu.php')
@@ -13,28 +14,32 @@ include('module/pdo_zugang.php');
 		$statement = $conn->prepare("SELECT *  FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
 		$statement->execute(array('Name' => $cocktailname));
 		$suche = $statement->fetch();
-
+		$anzahl_zutat = sizeof($_GET["zutat"]);
+		//echo $anzahl_zutat;
 		if($suche !== false) {
 			echo 'Dieser Cocktail ist schon vorhanden';
 		} else{
 			if(!isset($_GET['alkoholgehalt'])) {
 				echo "Sie haben vergessen den Alkoholgehalt anzugeben." . "<br>";
-				echo "<a href='../cock_erfassen.php'>Zurück</a>";
+				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
 			} elseif(!isset($_GET['cocktailgeschmack'])){
 				echo "Es muss mindestens eine Geschmachsart angegeben werden.";
-				echo "<a href='../cock_erfassen.php'>Zurück</a>";
+				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
 			} elseif(!isset($_GET['cocktailglas'])){
 				echo "Es muss mindestens ein Cocktailglas angegeben werden.";
-				echo "<a href='../cock_erfassen.php'>Zurück</a>";
+				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
 			} elseif(!isset($_GET['cocktailart'])){
 				echo "Es muss ein Cocktailart angegeben werden.";
-				echo "<a href='../cock_erfassen.php'>Zurück</a>";
+				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
 			} elseif(!isset($_GET['dekoration'])){
 				echo "Es muss mindestens eine Dekoration angegeben werden.";
-				echo "<a href='../cock_erfassen.php'>Zurück</a>";
+				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
 			} elseif(!isset($_GET['trinkanlass'])){
 				echo "Es muss mindestens ein Trinkanlass angegeben werden.";
-				echo "<a href='../cock_erfassen.php'>Zurück</a>";
+				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
+			} elseif($anzahl_zutat < 0){
+				echo "Bitte mindestens eine Zutat eingeben!"."<br>";
+				echo "<a href='/dashboard/cocktail/src/html/cock_erfassen.php'>Zurück</a>";
 			} else{
 				
 				$alkoholgehalt = $_GET['alkoholgehalt'];
@@ -135,12 +140,30 @@ include('module/pdo_zugang.php');
 				/*------------------------------ Kategorie und Cocktail verbinden ------------------------------*/
 				
 				
-				/*------------------------------ Zutat einfügen ------------------------------*/
-				$zutat = $_GET['zutat'];
-				$einheit = $_GET['einheit'];
-				$menge1 = $_GET['menge1'];
-				/*------------------------------ Zutat einfügen ------------------------------*/
+				/*------------------------------ Zutaten ------------------------------*/
+				//$zutat = $_GET['zutat'];
+				//$einheit = $_GET['einheit'];
+				//$menge1 = $_GET['menge1'];
+				//$statement_art = $conn->prepare("INSERT INTO `cocktail_kategorie` (`CocktailID`, `KategorieID`) VALUES ('$cocktail_ID', '$cocktailart_ID')");
+				//$statement_art->execute();	/*Relation zwischen Kategorie und Cocktail wird hergestellt.*/
+				for($i=0; $i<$anzahl_zutat ;$i++){
+					$zutat  = $_GET['zutat'][$i];
+					$einheit = $_GET['einheit'][$i];
+					$menge = $_GET['menge'][$i];
+					
+					/*------------------------------ Zutaten einfügen ------------------------------*/
+					$statement_zutat_einfügen = $conn->prepare("INSERT INTO `zutat` (`Name`, `Menge`,`Einheit`) VALUES ('$zutat', '$menge','$einheit')");
+					$statement_zutat_einfügen->execute();	/*Zutat einfügen wenn nicht vorhanden.*/
+					/*------------------------------ Zutaten einfügen ------------------------------*/
+					
+					echo $zutat . " " . $einheit . " " . $menge . " " . "<br>";
+				}
+				/*------------------------------ Zutaten ------------------------------*/
+				
+				
+				/*------------------------------ Success ------------------------------*/
 				echo "<h1>" . "Cocktail Erfolgreich in die Datenbank eingefügt!" . "</h1>" . "<br>";
+				/*------------------------------ Success ------------------------------*/
 				
 			}
 		}

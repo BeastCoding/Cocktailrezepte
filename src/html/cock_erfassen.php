@@ -34,10 +34,10 @@ include('module/pdo_zugang.php');
 				<div id="input1" class="clonedInput">
 					<label>Zutat:</label>
 					<!------------------------------------------------------------------------->
-					<input class="clonedInputZutat" type="text" name="zutat" id="zutatenfeld_1" required>
+					<input class="clonedInputZutat" type="text" name="zutat[]" id="zutatenfeld_1" required>
 					<!------------------------------------------------------------------------->
 					<label>Einheit:</label>
-					<select class="cloneInputEinheit" name="einheit" size="1" id="einheiten_1">
+					<select class="cloneInputEinheit" name="einheit[]" size="1" id="einheiten_1">
 						<option class="feldgroesse" alue="e11">Gramm</option>
 						<option class="feldgroesse" value="e12">cl</option>
 						<option class="feldgroesse" value="e13">Stück</option>
@@ -47,7 +47,7 @@ include('module/pdo_zugang.php');
 						<option class="feldgroesse" value="e17">EL</option>
 					</select>
 					<label>Menge:</label>
-					<input class="cloneInputMenge" type="number" name="menge1" id="mengefeld_1" required>
+					<input class="cloneInputMenge" type="number" name="menge[]" id="mengefeld_1" required>
 				</div>
 				<br>
 				<button id="btnAdd" type="button">+</button>
@@ -278,9 +278,9 @@ include('module/pdo_zugang.php');
 			var num = $('.clonedInput').length;
 			var newNum = new Number(num + 1);
 			var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
-			newElem.children('#zutatenfeld_' + num).attr('id', 'zutatenfeld_' + newNum).attr('name', 'zutat' + newNum);
-			newElem.children('#einheiten_' + num).attr('id', 'einheiten_' + newNum).attr('name', 'einheit' + newNum);
-			newElem.children('#mengefeld_' + num).attr('id', 'mengefeld_' + newNum).attr('name', 'menge' + newNum);
+			newElem.children('#zutatenfeld_' + num).attr('id', 'zutatenfeld_' + newNum);
+			newElem.children('#einheiten_' + num).attr('id', 'einheiten_' + newNum);
+			newElem.children('#mengefeld_' + num).attr('id', 'mengefeld_' + newNum);
 			$('#input' + num).after(newElem);
 			$('#btnDel').attr('disabled', false);
 			if (newNum == 10)
