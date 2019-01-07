@@ -17,7 +17,7 @@ include('module/pdo_zugang.php');
 		$anzahl_zutat = sizeof($_GET["zutat"]);
 		//echo $anzahl_zutat;
 		if($suche !== false) {
-			echo 'Dieser Cocktail ist schon vorhanden';
+			echo "<h1>" . 'Dieser Cocktail ist schon vorhanden' . "</h1>";
 		} else{
 			if(!isset($_GET['alkoholgehalt'])) {
 				echo "Sie haben vergessen den Alkoholgehalt anzugeben." . "<br>";
@@ -47,6 +47,7 @@ include('module/pdo_zugang.php');
 				$statement->execute();
 				
 				/*------------------------------ Anlass und Cocktail verbinden ------------------------------*/
+				
 				foreach ($_GET['trinkanlass'] as $trinkanlass){
 					
 					$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
@@ -61,11 +62,13 @@ include('module/pdo_zugang.php');
 					$statement_anlass = $conn->prepare("INSERT INTO `cocktail_anlass` (`CocktailID`, `AnlassID`) VALUES ('$cocktail_ID', '$anlass_ID')"); //Entity mit Relation verbinden
 					$statement_anlass->execute();
 				}
+				
 				/*------------------------------ Anlass und Cocktail verbinden ------------------------------*/
 				
 				
 				
 				/*------------------------------ Geschmack und Cocktail verbinden ------------------------------*/
+				
 				foreach ($_GET['cocktailgeschmack'] as $cocktailgeschmack){
 					
 					$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
@@ -80,11 +83,13 @@ include('module/pdo_zugang.php');
 					$statement_geschmack = $conn->prepare("INSERT INTO `cocktail_geschmack` (`CocktailID`, `GeschmackID`) VALUES ('$cocktail_ID', '$geschmack_ID')");
 					$statement_geschmack->execute();	/*Relation zwischen Geschmack und Cocktail wird hergestellt.*/
 				}
+				
 				/*------------------------------ Geschmack und Cocktail verbinden ------------------------------*/
 				
 				
 				
 				/*------------------------------ Glas und Cocktail verbinden ------------------------------*/
+				
 				foreach ($_GET['cocktailglas'] as $cocktailglas){
 					
 					$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
@@ -99,11 +104,13 @@ include('module/pdo_zugang.php');
 					$statement_glas = $conn->prepare("INSERT INTO `cocktail_glas` (`CocktailID`, `GlasID`) VALUES ('$cocktail_ID', '$glas_ID')");
 					$statement_glas->execute();	/*Relation zwischen Glas und Cocktail wird hergestellt.*/
 				}
+				
 				/*------------------------------ Glas und Cocktail verbinden ------------------------------*/
 				
 				
 				
 				/*------------------------------ Dekoration und Cocktail verbinden ------------------------------*/
+				
 				foreach ($_GET['dekoration'] as $dekoration){
 					
 					$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
@@ -118,6 +125,7 @@ include('module/pdo_zugang.php');
 					$statement_deko = $conn->prepare("INSERT INTO `cocktail_einzeldeko` (`CocktailID`, `EinzeldekoID`) VALUES ('$cocktail_ID', '$dekoration_ID')");
 					$statement_deko->execute();	/*Relation zwischen Dekoration und Cocktail wird hergestellt.*/
 				}
+				
 				/*------------------------------ Dekoration und Cocktail verbinden ------------------------------*/
 				
 				
@@ -141,16 +149,6 @@ include('module/pdo_zugang.php');
 				
 				
 				/*------------------------------ Zutaten ------------------------------*/
-				//$zutat = $_GET['zutat'];
-				//$einheit = $_GET['einheit'];
-				//$menge1 = $_GET['menge1'];
-				//$statement_art = $conn->prepare("INSERT INTO `cocktail_kategorie` (`CocktailID`, `KategorieID`) VALUES ('$cocktail_ID', '$cocktailart_ID')");
-				//$statement_art->execute();	/*Relation zwischen Kategorie und Cocktail wird hergestellt.*/
-				
-				//$cocktailname = $_GET['cocktailname'];
-				//$statement = $conn->prepare("SELECT *  FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
-				//$statement->execute(array('Name' => $cocktailname));
-				//$suche = $statement->fetch();
 				
 				for($i=0; $i<$anzahl_zutat ;$i++){
 					$zutat  = $_GET['zutat'][$i];
@@ -162,7 +160,7 @@ include('module/pdo_zugang.php');
 					$suche_zutat = $zutat_abfrage->fetch();
 					if($suche_zutat == false) {
 						/*------------------------------ Zutaten einfügen ------------------------------*/
-						$statement_zutat_einfügen = $conn->prepare("INSERT INTO `zutat` (`Name`, `Menge`,`Einheit`) VALUES ('$zutat', '$menge','$einheit')");
+						$statement_zutat_einfügen = $conn->prepare("INSERT INTO `zutat` (`Name`, `Menge`,`Einheit`) VALUES ('$zutat', '100','$einheit')");
 						$statement_zutat_einfügen->execute();	/*Zutat einfügen wenn nicht vorhanden.*/
 						
 						/*------------------------------ Zutaten und Cocktail verbinden ------------------------------*/
@@ -196,11 +194,21 @@ include('module/pdo_zugang.php');
 						/*------------------------------ Zutaten und Cocktail verbinden ------------------------------*/
 					}
 				}
+				
 				/*------------------------------ Zutaten ------------------------------*/
 				
+				/*------------------------------ Zubereitung einfügen ------------------------------*/
 				
+				$zubereitung = $_GET['Zubereitung'];
+				$statement = $conn->prepare($sql = "INSERT INTO `cocktail` (`ID`, `Name`, `Zubereitung`, `Alkohol`) VALUES (NULL, '$cocktailname', '$zubereitung', '$alkoholgehalt')");
+				$statement->execute();
+				
+				/*------------------------------ Zubereitung einfügen ------------------------------*/
+								
 				/*------------------------------ Success ------------------------------*/
+				
 				echo "<h1>" . "Cocktail Erfolgreich in die Datenbank eingefügt!" . "</h1>" . "<br>";
+				
 				/*------------------------------ Success ------------------------------*/
 				
 			}

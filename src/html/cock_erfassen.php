@@ -24,7 +24,7 @@ include('module/pdo_zugang.php');
 			<!---------------------- Zubereitung ---------------------->
 			<fieldset>
 				<legend>Zubereitung</legend>
-				<textarea></textarea>
+				<textarea name="Zubereitung"></textarea>
 			</fieldset>
 			<!---------------------- Zubereitung ---------------------->
 
@@ -38,13 +38,13 @@ include('module/pdo_zugang.php');
 					<!------------------------------------------------------------------------->
 					<label>Einheit:</label>
 					<select class="cloneInputEinheit" name="einheit[]" size="1" id="einheiten_1">
-						<option class="feldgroesse" value="e11">Gramm</option>
-						<option class="feldgroesse" value="e12">cl</option>
-						<option class="feldgroesse" value="e13">Stück</option>
-						<option class="feldgroesse" value="e14">Scheibe</option>
-						<option class="feldgroesse" value="e15">ml</option>
-						<option class="feldgroesse" value="e16">Prise</option>
-						<option class="feldgroesse" value="e17">EL</option>
+						<option class="feldgroesse" value="Gramm">Gramm</option>
+						<option class="feldgroesse" value="cl">cl</option>
+						<option class="feldgroesse" value="Stück">Stück</option>
+						<option class="feldgroesse" value="Scheibe">Scheibe</option>
+						<option class="feldgroesse" value="ml">ml</option>
+						<option class="feldgroesse" value="Prise">Prise</option>
+						<option class="feldgroesse" value="EL">EL</option>
 					</select>
 					<label>Menge:</label>
 					<input class="cloneInputMenge" type="number" name="menge[]" id="mengefeld_1" required>
