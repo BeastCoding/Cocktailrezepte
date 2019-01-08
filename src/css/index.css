@@ -128,7 +128,7 @@
 
 #laufschrift {
 	color : #7FFF00 ;
-	display: inline-block;
+/*	display: inline-block;  */
 	overflow: hidden;
 	position: relative;
 	left: 65%;
