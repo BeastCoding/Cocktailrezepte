@@ -25,7 +25,7 @@ function crKategorie(){
   include('module/pdo_zugang.php');
   $sql  = 'SELECT *  FROM `kategorie`';
   foreach ($conn->query($sql) as $row) {
-     echo "<input type='checkbox' name='art[]' value= " . $row['ID'] . ">"   . $row['Cocktailart'] ."<br>";
+     echo "<input type='checkbox' name='kategorie[]' value= " . $row['ID'] . ">"   . $row['Cocktailart'] ."<br>";
   }
   $conn = null;
 }
@@ -35,7 +35,7 @@ function crDeko(){
   include('module/pdo_zugang.php');
   $sql  = 'SELECT *  FROM `einzeldeko`';
   foreach ($conn->query($sql) as $row) {
-     echo "<input type='checkbox' name='deko[]' value= " . $row['ID'] . ">"  . $row['Dekosorte'] . "<br>";
+     echo "<input type='checkbox' name='einzeldeko[]' value= " . $row['ID'] . ">"  . $row['Dekosorte'] . "<br>";
   }
   $conn = null;
 }
