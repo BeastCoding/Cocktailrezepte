@@ -38,6 +38,7 @@ include('module/header.php');
 //<!---------------------- Anzeige der gesuchten Cocktails---------------------->
                     $cocktails = searchCocktail($cBox,$search);
                     $zutat = searchZutat($search);
+                    echo "<section id='data'>"
                     if(empty($cocktails) && empty($zutat)){
                         echo "<div>keine Ergebnisse gefunden</div>";
 
@@ -58,6 +59,7 @@ include('module/header.php');
                             echo "</div>";
                     	}
                     }
+                    echo "</section>"
                 ?>
 			</section>
 		</section>
