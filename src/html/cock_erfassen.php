@@ -24,7 +24,7 @@ include('module/pdo_zugang.php');
 			<!---------------------- Zubereitung ---------------------->
 			<fieldset>
 				<legend>Zubereitung</legend>
-				<textarea></textarea>
+				<textarea name="Zubereitung"></textarea>
 			</fieldset>
 			<!---------------------- Zubereitung ---------------------->
 
@@ -34,20 +34,20 @@ include('module/pdo_zugang.php');
 				<div id="input1" class="clonedInput">
 					<label>Zutat:</label>
 					<!------------------------------------------------------------------------->
-					<input class="clonedInputZutat" type="text" name="zutat" id="zutatenfeld_1" required>
+					<input class="clonedInputZutat" type="text" name="zutat[]" id="zutatenfeld_1" required>
 					<!------------------------------------------------------------------------->
 					<label>Einheit:</label>
-					<select class="cloneInputEinheit" name="einheit" size="1" id="einheiten_1">
-						<option class="feldgroesse" alue="e11">Gramm</option>
-						<option class="feldgroesse" value="e12">cl</option>
-						<option class="feldgroesse" value="e13">Stück</option>
-						<option class="feldgroesse" value="e14">Scheibe</option>
-						<option class="feldgroesse" value="e15">ml</option>
-						<option class="feldgroesse" value="e16">Prise</option>
-						<option class="feldgroesse" value="e17">EL</option>
+					<select class="cloneInputEinheit" name="einheit[]" size="1" id="einheiten_1">
+						<option class="feldgroesse" value="Gramm">Gramm</option>
+						<option class="feldgroesse" value="cl">cl</option>
+						<option class="feldgroesse" value="Stück">Stück</option>
+						<option class="feldgroesse" value="Scheibe">Scheibe</option>
+						<option class="feldgroesse" value="ml">ml</option>
+						<option class="feldgroesse" value="Prise">Prise</option>
+						<option class="feldgroesse" value="EL">EL</option>
 					</select>
 					<label>Menge:</label>
-					<input class="cloneInputMenge" type="number" name="menge1" id="mengefeld_1" required>
+					<input class="cloneInputMenge" type="number" name="menge[]" id="mengefeld_1" required>
 				</div>
 				<br>
 				<button id="btnAdd" type="button">+</button>
@@ -61,46 +61,9 @@ include('module/pdo_zugang.php');
 				<?php
 						$sql  = 'SELECT *  FROM `geschmack`';
 						foreach ($conn->query($sql) as $row) {
-							switch				 ($row['ID'])
-							{
-								case 2:
-									$wert = "süß";
-								break;
-								case 3:
-									$wert = "sauer";
-								break;
-								case 4:
-									$wert = "fruchtig";
-								break;
-								case 5:
-									$wert = "scharf";
-								break;
-								case 6:
-									$wert = "funky";
-								break;
-								case 7:
-									$wert = "spritzig";
-								break;
-								case 8:
-									$wert = "cremig";
-								break;
-								case 9:
-									$wert = "würzig";
-								break;
-								case 10:
-									$wert = "aromatisch";
-								break;
-								case 11:
-									$wert = "trocken";
-								break;
-								case 12:
-									$wert = "bitter";
-								break;
-							}
-						   echo "<input multiple type='checkbox' name='cocktailgeschmack[]' value= " . $wert . ">" . $row['Geschmacksrichtung'] . "<br>";
+						   echo "<input multiple type='checkbox' name='cocktailgeschmack[]' value=" . $row['Geschmacksrichtung'] . ">" . $row['Geschmacksrichtung'] . "<br>";
 						}
 					?>
-				<br>
 			</fieldset>
 			<!---------------------- Cocktailgeschmack ---------------------->
 
@@ -110,49 +73,9 @@ include('module/pdo_zugang.php');
 				<?php
 						$sql  = 'SELECT *  FROM `glas`';
 						foreach ($conn->query($sql) as $row) {
-							switch				 ($row['ID'])
-							{
-								case 1:
-									$wert = "Tumbler";
-								break;
-								case 2:
-									$wert = "Highballglas";
-								break;
-								case 3:
-									$wert = "Ballonglas";
-								break;
-								case 4:
-									$wert = "Cocktailschale";
-								break;
-								case 5:
-									$wert = "Cocktailbecher";
-								break;
-								case 6:
-									$wert = "Nosing Glas";
-								break;
-								case 7:
-									$wert = "Shooter Glas";
-								break;
-								case 8:
-									$wert = "Martiniglas";
-								break;
-								case 9:
-									$wert = "Becherglas";
-								break;
-								case 10:
-									$wert = "Punschglas";
-								break;
-								case 11:
-									$wert = "Silberbecher";
-								break;
-								case 12:
-									$wert = "Tiki-Mug";
-								break;
-							}
-						   echo "<input type='checkbox' name='cocktailglas[]' value= " . $wert . ">" . $row['Glastyp'] . "<br>";
+						   echo "<input type='checkbox' name='cocktailglas[]' value= " . $row['Glastyp'] . ">" . $row['Glastyp'] . "<br>";
 						}
 					?>
-				<br>
 			</fieldset>
 			<!---------------------- Cocktailglas ---------------------->
 
@@ -162,31 +85,9 @@ include('module/pdo_zugang.php');
 				<?php
 						$sql  = 'SELECT *  FROM `kategorie`';
 						foreach ($conn->query($sql) as $row) {
-							switch				 ($row['ID'])
-							{
-								case 1:
-									$wert = "Longdrink";
-								break;
-								case 2:
-									$wert = "Shortdrink";
-								break;
-								case 3:
-									$wert = "Hotdrink";
-								break;
-								case 4:
-									$wert = "Bowle";
-								break;
-								case 5:
-									$wert = "Shooter";
-								break;
-								case 6:
-									$wert = "Sektcocktail";
-								break;
-							}
-						   echo "<input type='radio' name='cocktailart' value= " . $wert . ">" . $row['Cocktailart'] . "<br>";
+						   echo "<input type='radio' name='cocktailart' value= " . $row['Cocktailart'] . ">" . $row['Cocktailart'] . "<br>";
 						}
 					?>
-				<br>
 			</fieldset>
 			<!---------------------- Cocktailart ---------------------->
 
@@ -197,31 +98,9 @@ include('module/pdo_zugang.php');
 				<?php
 						$sql  = 'SELECT *  FROM `einzeldeko`';
 						foreach ($conn->query($sql) as $row) {
-							switch				 ($row['ID'])
-							{
-								case 1:
-									$wert = "Früchte";
-								break;
-								case 2:
-									$wert = "Beeren";
-								break;
-								case 3:
-									$wert = "Orangenspieß";
-								break;
-								case 4:
-									$wert = "Zitruslocken";
-								break;
-								case 5:
-									$wert = "Olive";
-								break;
-								case 6:
-									$wert = "Minzezweig";
-								break;
-							}
-						   echo "<input type='checkbox' name='dekoration[]' value= " . $wert . ">" . $row['Dekosorte'] . "<br>";
+						   echo "<input type='checkbox' name='dekoration[]' value= " . $row['Dekosorte'] . ">" . $row['Dekosorte'] . "<br>";
 						}
 					?>
-				<br>
 			</fieldset>
 			<!---------------------- Dekoration ---------------------->
 
@@ -231,28 +110,9 @@ include('module/pdo_zugang.php');
 				<?php
 						$sql  = 'SELECT *  FROM `anlass`';
 						foreach ($conn->query($sql) as $row) {
-							switch				 ($row['ID'])
-							{
-								case 1:
-									$wert = "Aperitif";
-								break;
-								case 2:
-									$wert = "After-Dinner";
-								break;
-								case 3:
-									$wert = "Digestif";
-								break;
-								case 4:
-									$wert = "Dessert";
-								break;
-								case 5:
-									$wert = "Corpse Reviver";
-								break;
-							}
-						   echo "<input type='checkbox' name='trinkanlass[]' value= " . $wert . ">" . $row['Trinkanlass'] . "<br>";
+						   echo "<input type='checkbox' name='trinkanlass[]' value= " . $row['Trinkanlass'] . ">" . $row['Trinkanlass'] . "<br>";
 						}
 					?>
-				<br>
 			</fieldset>
 			<!---------------------- Trinkanlass ---------------------->
 
@@ -264,7 +124,6 @@ include('module/pdo_zugang.php');
 				<input type="radio" name="alkoholgehalt" value="maessig">mäßig<br>
 				<input type="radio" name="alkoholgehalt" value="normal">normal<br>
 				<input type="radio" name="alkoholgehalt" value="stark">stark<br>
-				<br>
 			</fieldset>
 			<!---------------------- Alkoholgehalt ---------------------->
 
@@ -278,9 +137,9 @@ include('module/pdo_zugang.php');
 			var num = $('.clonedInput').length;
 			var newNum = new Number(num + 1);
 			var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
-			newElem.children('#zutatenfeld_' + num).attr('id', 'zutatenfeld_' + newNum).attr('name', 'zutat' + newNum);
-			newElem.children('#einheiten_' + num).attr('id', 'einheiten_' + newNum).attr('name', 'einheit' + newNum);
-			newElem.children('#mengefeld_' + num).attr('id', 'mengefeld_' + newNum).attr('name', 'menge' + newNum);
+			newElem.children('#zutatenfeld_' + num).attr('id', 'zutatenfeld_' + newNum);
+			newElem.children('#einheiten_' + num).attr('id', 'einheiten_' + newNum);
+			newElem.children('#mengefeld_' + num).attr('id', 'mengefeld_' + newNum);
 			$('#input' + num).after(newElem);
 			$('#btnDel').attr('disabled', false);
 			if (newNum == 10)

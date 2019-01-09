@@ -179,30 +179,30 @@
 /* Bildschirmbreite maximal 950px*/
 
 @media screen and (max-width: 950px) {
-	
+
 	#bullet {
-	
+
 	font-size: 1.5em;
 	top: 0%;
-	
-	
+
+
 	}
 }
 @media screen and (max-width: 850px) {
 	#ueberschrift1 {
-	
-	font-size: 4em; 
+
+	font-size: 4em;
 	top: -1.6%;
 	left: 2%;
-	
+
 		}
 	#bullet {
-	
+
 	font-size: 1.5em;
 	left: 70%;
 	width: 60%;
 	height: 5%;
-	
+
 	}
 }
 @media screen and (max-width: 750px) {
@@ -229,6 +229,6 @@
 @media screen and (max-width: 350px) {
 	#bullet {
 	left: 0%;
-	
+
 	}
 }

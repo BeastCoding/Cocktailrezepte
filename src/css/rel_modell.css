@@ -2,13 +2,13 @@
 /* hauptbereich */
 #hauptteil {
 	/* width: 1080px;  */
-	
-	max-width: 1080px;
-	background-size: 1080px; 
 
-	height: 600px;  
-	margin: 0 auto; 
-	overflow-y: scroll; 
+	max-width: 1080px;
+	background-size: 1080px;
+
+	height: 600px;
+	margin: 0 auto;
+	overflow-y: scroll;
 }
 .ueberschrift {
 	display: flex;
@@ -81,7 +81,7 @@
  height: 20px;
 }
 #hauptteil {
-		height: 450px;  
-	
+		height: 450px;
+
 }
 }
