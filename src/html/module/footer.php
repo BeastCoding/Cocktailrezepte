@@ -10,8 +10,8 @@
 					<ul>
 					<!--	<li><a href="../index.php">Home</a></li>
 						<li>------</li>		-->
-						<li><a href="impressum.php">Impressum</a></li>
-						<li>------</li>
+						<li><a href="impressum.php">Rechtshinweise</a></li>
+						<li class="striche">---</li>
 						<li><a href="kontakt.php">Kontakt</a></li>
 					</ul>
 					

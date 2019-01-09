@@ -26,3 +26,8 @@ Fehler:
 Test
 
 Mal gucken, ob's ankommt
+
+
+Fehlermeldung bei Daten erfassen:
+Fatal error: Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`pswd18_5`.`cocktail_glas`, CONSTRAINT `Cocktail_Glas_ibfk_2` FOREIGN KEY (`GlasID`) REFERENCES `glas` (`ID`)) in C:\xampp\htdocs\dashboard\cocktail\src\html\db_insert.php:106 Stack trace: #0 C:\xampp\htdocs\dashboard\cocktail\src\html\db_insert.php(106): PDOStatement->execute() #1 {main} thrown in C:\xampp\htdocs\dashboard\cocktail\src\html\db_insert.php on line 106
+ausgewählt war nosing glas

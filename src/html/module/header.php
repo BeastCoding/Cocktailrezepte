@@ -22,7 +22,7 @@ switch($page){
 		$indiv_css='../css/er-modell.css';
 		break;
 	case '/dashboard/cocktail/src/html/impressum.php':
-		$title = 'Impressum';
+		$title = 'Rechtshinweise';
 		$gener_css='../css/general.css';
 		$indiv_css='../css/impressum.css';
 		break;
@@ -45,6 +45,11 @@ switch($page){
 		$title = 'Erfassung';
 		$gener_css='../css/general.css';
 		$indiv_css='../css/cock_erfassen.css';
+		break;
+	case '/dashboard/cocktail/src/html/suche.php':
+		$title = 'Suche';
+		$gener_css='../css/general.css';
+		$indiv_css='../css/suche.css';
 		break;
 }
 
