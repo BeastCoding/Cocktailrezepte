@@ -54,4 +54,12 @@ function searchZutat($search){
 	return $res;
 }
 
+function deleteCocktail{
+	include('module/pdo_zugang.php');
+}
+
+function deleteZutat{
+	include('module/pdo_zugang.php');
+}
+
 ?>
