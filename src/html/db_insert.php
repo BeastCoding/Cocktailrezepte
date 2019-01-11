@@ -47,23 +47,13 @@ include('module/pdo_zugang.php');
 				$statement = $conn->prepare($sql = "INSERT INTO `cocktail` (`ID`, `Name`, `Zubereitung`, `Alkohol`) VALUES (NULL, '$cocktailname', '$zubereitung', '$alkoholgehalt')");
 				$statement->execute();
 				
+				$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
+				$cocktail_ID_abfrage->execute();
+				$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();/*Hier wird die ID des Cocktails gesucht*/
+				
 				/*------------------------------ Anlass und Cocktail verbinden ------------------------------*/
 				
-				foreach ($_GET['trinkanlass'] as $trinkanlass){
-					
-					$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
-					$cocktail_ID_abfrage->execute();
-					$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();/*Hier wird die ID des Cocktails gesucht*/
-					
-					//-------------------Diesen Absatz löschen, wenn alles läuft---------------------------//
-					/*
-					$anlass_ID_abfragen = $conn->prepare("SELECT ID FROM `anlass` WHERE `Trinkanlass` LIKE '$trinkanlass'");
-					$anlass_ID_abfragen->execute();
-					$anlass_ID = $anlass_ID_abfragen->fetchColumn();
-					*/
-					//-------------------Diesen Absatz löschen, wenn alles läuft---------------------------//
-					
-					
+				foreach ($_GET['trinkanlass'] as $trinkanlass){		
 					$statement_anlass = $conn->prepare("INSERT INTO `cocktail_anlass` (`CocktailID`, `AnlassID`) VALUES ('$cocktail_ID', '$trinkanlass')"); //Entity mit Relation verbinden
 					$statement_anlass->execute();
 				}
@@ -74,21 +64,7 @@ include('module/pdo_zugang.php');
 				
 				/*------------------------------ Geschmack und Cocktail verbinden ------------------------------*/
 				
-				foreach ($_GET['cocktailgeschmack'] as $cocktailgeschmack){
-					
-					$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
-					$cocktail_ID_abfrage->execute();
-					$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();	/*Hier wird die ID des Cocktails gesucht*/
-					
-					
-					//-------------------Diesen Absatz löschen, wenn alles läuft---------------------------//
-					/*
-					$geschmack_ID_abfragen = $conn->prepare("SELECT ID FROM `geschmack` WHERE `Geschmacksrichtung` LIKE '$cocktailgeschmack'");
-					$geschmack_ID_abfragen->execute();
-					$geschmack_ID = $geschmack_ID_abfragen->fetchColumn();	/*Hier werden die ID der Geschmäcker gesucht*/
-					//-------------------Diesen Absatz löschen, wenn alles läuft---------------------------//
-
-					
+				foreach ($_GET['cocktailgeschmack'] as $cocktailgeschmack){					
 					$statement_geschmack = $conn->prepare("INSERT INTO `cocktail_geschmack` (`CocktailID`, `GeschmackID`) VALUES ('$cocktail_ID', '$cocktailgeschmack')");
 					$statement_geschmack->execute();	/*Relation zwischen Geschmack und Cocktail wird hergestellt.*/
 				}
@@ -100,19 +76,6 @@ include('module/pdo_zugang.php');
 				/*------------------------------ Glas und Cocktail verbinden ------------------------------*/
 				
 				foreach ($_GET['cocktailglas'] as $cocktailglas){
-					
-					$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
-					$cocktail_ID_abfrage->execute();
-					$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();	/*Hier wird die ID des Cocktails gesucht*/ 
-					
-					//-------------------Diesen Absatz löschen, wenn alles läuft---------------------------//
-					/*					
-					$glas_ID_abfragen = $conn->prepare("SELECT ID FROM `glas` WHERE `Glastyp` LIKE '$cocktailglas'");
-					$glas_ID_abfragen->execute();
-					$glas_ID = $glas_ID_abfragen->fetchColumn();	
-					/*Hier werden die ID der Gläser gesucht*/
-					//-------------------Diesen Absatz löschen, wenn alles läuft---------------------------//
-
 					$statement_glas = $conn->prepare("INSERT INTO `cocktail_glas` (`CocktailID`, `GlasID`) VALUES ('$cocktail_ID', '$cocktailglas')");
 					$statement_glas->execute();	/*Relation zwischen Glas und Cocktail wird hergestellt.*/
 				}
@@ -123,19 +86,7 @@ include('module/pdo_zugang.php');
 				
 				/*------------------------------ Dekoration und Cocktail verbinden ------------------------------*/
 				
-				foreach ($_GET['dekoration'] as $dekoration){
-					
-					$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
-					$cocktail_ID_abfrage->execute();
-					$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();	/*Hier wird die ID des Cocktails gesucht*/
-					
-					//-------------------Diesen Absatz löschen, wenn alles läuft---------------------------//
-					/*
-					$dekoration_ID_abfragen = $conn->prepare("SELECT ID FROM `einzeldeko` WHERE `Dekosorte` LIKE '$dekoration'");
-					$dekoration_ID_abfragen->execute();
-					$dekoration_ID = $dekoration_ID_abfragen->fetchColumn();	/*Hier werden die ID der Dekorationen gesucht*/
-					//-------------------Diesen Absatz löschen, wenn alles läuft---------------------------//
-					
+				foreach ($_GET['dekoration'] as $dekoration){					
 					$statement_deko = $conn->prepare("INSERT INTO `cocktail_einzeldeko` (`CocktailID`, `EinzeldekoID`) VALUES ('$cocktail_ID', '$dekoration')");
 					$statement_deko->execute();	/*Relation zwischen Dekoration und Cocktail wird hergestellt.*/
 				}
@@ -145,21 +96,8 @@ include('module/pdo_zugang.php');
 				
 				
 				/*------------------------------ Kategorie und Cocktail verbinden ------------------------------*/
-
+				
 				$cocktailart = $_GET['cocktailart'];
-				$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
-				$cocktail_ID_abfrage->execute();
-				$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();	/*Hier wird die ID des Cocktails gesucht*/
-				
-				
-				//-------------------Diesen Absatz löschen, wenn alles läuft---------------------------//
-				/*
-				$cocktailart_ID_abfragen = $conn->prepare("SELECT ID FROM `kategorie` WHERE `Cocktailart` LIKE '$cocktailart'");
-				$cocktailart_ID_abfragen->execute();
-				$cocktailart_ID = $cocktailart_ID_abfragen->fetchColumn();	/*Hier werden die ID der Kategorie gesucht*/
-				//-------------------Diesen Absatz löschen, wenn alles läuft---------------------------//	
-					
-
 				$statement_art = $conn->prepare("INSERT INTO `cocktail_kategorie` (`CocktailID`, `KategorieID`) VALUES ('$cocktail_ID', '$cocktailart')");
 				$statement_art->execute();	/*Relation zwischen Kategorie und Cocktail wird hergestellt.*/
 				
@@ -198,10 +136,8 @@ include('module/pdo_zugang.php');
 						/*------------------------------ Zutaten einfügen ------------------------------*/
 					}
 					else{
+						
 						/*------------------------------ Zutaten und Cocktail verbinden ------------------------------*/
-						$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$cocktailname'");
-						$cocktail_ID_abfrage->execute();
-						$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();	/*Hier wird die ID des Cocktails gesucht*/
 
 						$zutat_ID_abfragen = $conn->prepare("SELECT ID FROM `zutat` WHERE `Name` LIKE '$zutat'");
 						$zutat_ID_abfragen->execute();
@@ -209,6 +145,7 @@ include('module/pdo_zugang.php');
 
 						$statement_zutat = $conn->prepare("INSERT INTO `cocktail_zutat` (`CocktailID`, `ZutatID`, `Menge`) VALUES ('$cocktail_ID', '$zutat_ID', '$menge')");
 						$statement_zutat->execute();	/*Relation zwischen Dekoration und Cocktail wird hergestellt.*/
+						
 						/*------------------------------ Zutaten und Cocktail verbinden ------------------------------*/
 					}
 				}
