@@ -61,7 +61,7 @@ include('module/pdo_zugang.php');
 				<?php
 						$sql  = 'SELECT *  FROM `geschmack`';
 						foreach ($conn->query($sql) as $row) {
-						   echo "<input multiple type='checkbox' name='cocktailgeschmack[]' value=" . $row['Geschmacksrichtung'] . ">" . $row['Geschmacksrichtung'] . "<br>";
+						   echo "<input multiple type='checkbox' name='cocktailgeschmack[]' value=" . $row['ID'] . ">" . $row['Geschmacksrichtung'] . "<br>";
 						}
 					?>
 			</fieldset>
@@ -71,9 +71,10 @@ include('module/pdo_zugang.php');
 			<fieldset class="fieldset-auto-width">
 				<legend>Cocktailglas</legend>
 				<?php
+				
 						$sql  = 'SELECT *  FROM `glas`';
 						foreach ($conn->query($sql) as $row) {
-						   echo "<input type='checkbox' name='cocktailglas[]' value= " . $row['Glastyp'] . ">" . $row['Glastyp'] . "<br>";
+						   echo "<input type='checkbox' name='cocktailglas[]' value= " . $row['ID'] . ">" . $row['Glastyp'] . "<br>";
 						}
 					?>
 			</fieldset>
@@ -85,7 +86,7 @@ include('module/pdo_zugang.php');
 				<?php
 						$sql  = 'SELECT *  FROM `kategorie`';
 						foreach ($conn->query($sql) as $row) {
-						   echo "<input type='radio' name='cocktailart' value= " . $row['Cocktailart'] . ">" . $row['Cocktailart'] . "<br>";
+						   echo "<input type='radio' name='cocktailart' value= " . $row['ID'] . ">" . $row['Cocktailart'] . "<br>";
 						}
 					?>
 			</fieldset>
@@ -98,7 +99,7 @@ include('module/pdo_zugang.php');
 				<?php
 						$sql  = 'SELECT *  FROM `einzeldeko`';
 						foreach ($conn->query($sql) as $row) {
-						   echo "<input type='checkbox' name='dekoration[]' value= " . $row['Dekosorte'] . ">" . $row['Dekosorte'] . "<br>";
+						   echo "<input type='checkbox' name='dekoration[]' value= " . $row['ID'] . ">" . $row['Dekosorte'] . "<br>";
 						}
 					?>
 			</fieldset>
@@ -110,7 +111,7 @@ include('module/pdo_zugang.php');
 				<?php
 						$sql  = 'SELECT *  FROM `anlass`';
 						foreach ($conn->query($sql) as $row) {
-						   echo "<input type='checkbox' name='trinkanlass[]' value= " . $row['Trinkanlass'] . ">" . $row['Trinkanlass'] . "<br>";
+						   echo "<input type='checkbox' name='trinkanlass[]' value= " . $row['ID'] . ">" . $row['Trinkanlass'] . "<br>";
 						}
 					?>
 			</fieldset>
