@@ -54,12 +54,33 @@ function searchZutat($search){
 	return $res;
 }
 
-function deleteCocktail{
+function deleteCocktail($dieser_cocktail_wird_geloescht){
 	include('module/pdo_zugang.php');
+	/*----------------------------- ID von Cocktail wird hier gesucht und in $cocktail_ID gespeichert ---------------------------------------*/
+	$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$dieser_cocktail_wird_geloescht'");
+	$cocktail_ID_abfrage->execute();
+	$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();
+	/*----------------------------- Wenn ID direkt in die funktion eingegeben wird einfach in $cocktail_ID einsetzen ------------------------*/
+	$delete_statement = $conn->prepare("DELETE FROM `cocktail_anlass` WHERE `cocktail_anlass`.`CocktailID` LIKE '$cocktail_ID'");
+	$delete_statement->execute();
+	$delete_statement = $conn->prepare("DELETE FROM `cocktail_einzeldeko` WHERE `cocktail_einzeldeko`.`CocktailID` LIKE '$cocktail_ID'");
+	$delete_statement->execute();
+	$delete_statement = $conn->prepare("DELETE FROM `cocktail_geschmack` WHERE `cocktail_geschmack`.`CocktailID` LIKE '$cocktail_ID'");
+	$delete_statement->execute();
+	$delete_statement = $conn->prepare("DELETE FROM `cocktail_glas` WHERE `cocktail_glas`.`CocktailID` LIKE '$cocktail_ID'");
+	$delete_statement->execute();
+	$delete_statement = $conn->prepare("DELETE FROM `cocktail_kategorie` WHERE `cocktail_kategorie`.`CocktailID` LIKE '$cocktail_ID'");
+	$delete_statement->execute();
+	$delete_statement = $conn->prepare("DELETE FROM `cocktail_zutat` WHERE `cocktail_zutat`.`CocktailID` LIKE '$cocktail_ID'");
+	$delete_statement->execute();
+	$delete_statement = $conn->prepare("DELETE FROM `cocktail` WHERE `cocktail`.`ID` = '$cocktail_ID'");
+	$delete_statement->execute();
 }
 
-function deleteZutat{
+function deleteZutat($diese_zutat_wird_geloescht){
 	include('module/pdo_zugang.php');
+	$delete_zutat_statement = $conn->prepare("DELETE FROM `zutat` WHERE `zutat`.`Name` LIKE '$diese_zutat_wird_geloescht'");
+	$delete_zutat_statement->execute();
 }
 
 ?>
