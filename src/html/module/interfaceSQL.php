@@ -3,14 +3,7 @@
 //Datenbank Abfrage für die Cocktailsuche
 function searchCocktail($cBox,$search){
 	include('module/pdo_zugang.php');
-	$sqGe = "INNER JOIN cocktail_geschmack on cocktail.ID = cocktail_geschmack.CocktailID INNER JOIN geschmack on cocktail_geschmack.GeschmackID = geschmack.ID";
-	$sqAn = "INNER JOIN cocktail_anlass on cocktail.ID = cocktail_anlass.CocktailID INNER JOIN anlass on cocktail_anlass.AnlassID = anlass.ID";
-	$sqDe = "INNER JOIN cocktail_einzeldeko on cocktail.ID = cocktail_einzeldeko.CocktailID INNER JOIN einzeldeko on cocktail_einzeldeko.EinzeldekoID = einzeldeko.ID";
-	$sqGl = "INNER JOIN cocktail_glas on cocktail.ID = cocktail_glas.CocktailID INNER JOIN glas on cocktail_glas.GlasID = glas.ID";
-	$sqKa = "INNER JOIN cocktail_kategorie on cocktail.ID = cocktail_kategorie.CocktailID INNER JOIN kategorie on cocktail_kategorie.KategorieID = kategorie.ID";
-	$sqZu = "INNER JOIN cocktail_zutat on cocktail.ID = cocktail_zutat.CocktailID INNER JOIN zutat on cocktail_zutat.ZutatID = zutat.ID";
-	$select = "SELECT cocktail.ID , cocktail.Name FROM cocktail";
-	$where =  " WHERE cocktail.Name REGEXP '.*".$search.".*'";
+	include('module/sqlstat.php');
 
 	foreach($cBox as $row){
 		switch($row[0]){
@@ -31,7 +24,12 @@ function searchCocktail($cBox,$search){
 				break;
 			}
 		for ($i = 1;$i < sizeof($row); $i++) {
-			$where = $where." AND ".$row[0].".ID = ".$row[$i];
+			if(strcmp($row[0], "cocktail") == 0){
+				$where = $where." AND ".$row[0].".Alkohol = '".$row[$i]."'";
+			}else{
+				$where = $where." AND ".$row[0].".ID = ".$row[$i];
+			}
+
 		}
 	}
 	$select = $select.$where;
@@ -53,6 +51,69 @@ function searchZutat($search){
     }
 	return $res;
 }
+
+
+
+function getCocktail($id){
+	include('module/pdo_zugang.php');
+	include('module/sqlstat.php');
+	$sql = $conn->prepare("SELECT * FROM cocktail WHERE cocktail.ID = ".$id);
+	$sql -> execute();
+	$res = $sql->fetchAll();
+	return $res;
+}
+
+function getZutat($id){
+	include('module/pdo_zugang.php');
+	include('module/sqlstat.php');
+	$sql = $conn->prepare("SELECT * FROM cocktail WHERE cocktail.ID = ".$id);
+	$sql -> execute();
+	$res = $sql->fetchAll();
+	return $res;
+}
+function getAnlass($id){
+	include('module/pdo_zugang.php');
+	include('module/sqlstat.php');
+	$sql = $conn->prepare("SELECT anlass.ID, anlass.Trinkanlass FROM cocktail_anlass INNER JOIN anlass on cocktail_anlass.AnlassID = anlass.ID WHERE cocktail_anlass.CocktailID = ".$id);
+	$sql -> execute();
+	$res = $sql->fetchAll();
+	return $res;
+}
+function getDeko($id){
+	include('module/pdo_zugang.php');
+	include('module/sqlstat.php');
+	$sql = $conn->prepare("SELECT einzeldeko.ID, einzeldeko.Dekosorte FROM cocktail_einzeldeko INNER JOIN einzeldeko on cocktail_einzeldeko.EinzeldekoID = einzeldeko.ID WHERE cocktail_einzeldeko.CocktailID = ".$id);
+	$sql -> execute();
+	$res = $sql->fetchAll();
+	return $res;
+}
+function getGeschmack($id){
+	include('module/pdo_zugang.php');
+	include('module/sqlstat.php');
+	$sql = $conn->prepare("SELECT geschmack.ID, geschmack.Geschmacksrichtung FROM cocktail_geschmack INNER JOIN geschmack on cocktail_geschmack.GeschmackID = geschmack.ID WHERE cocktail_geschmack.CocktailID = ".$id);
+	$sql -> execute();
+	$res = $sql->fetchAll();
+	return $res;
+}
+function getGlas($id){
+	include('module/pdo_zugang.php');
+	include('module/sqlstat.php');
+	$sql = $conn->prepare("SELECT glas.ID, glas.Glastyp FROM cocktail_glas INNER JOIN glas on cocktail_glas.GlasID = glas.ID WHERE cocktail_glas.CocktailID = ".$id);
+	$sql -> execute();
+	$res = $sql->fetchAll();
+	return $res;
+}
+function getKategorie($id){
+	include('module/pdo_zugang.php');
+	include('module/sqlstat.php');
+	$sql = $conn->prepare("SELECT kategorie.ID, kategorie.Cocktailart FROM cocktail_kategorie INNER JOIN kategorie on cocktail_kategorie.KategorieID = kategorie.ID WHERE cocktail_kategorie.CocktailID = ".$id);
+	$sql -> execute();
+	$res = $sql->fetchAll();
+	return $res;
+}
+
+
+
 
 function deleteCocktail($dieser_cocktail_wird_geloescht){
 	include('module/pdo_zugang.php');

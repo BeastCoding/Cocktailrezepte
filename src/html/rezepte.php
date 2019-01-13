@@ -15,6 +15,8 @@ include('module/header.php');
 					</div>
 					<div id="mHandler">
 					<?php
+					
+					//<!---------------------- Accordion---------------------->
 						include ('module/generateCB.php');
 						echo "<div class='cbStyle'><button class='accordion'>Geschmack</button>";
 						echo "<div class='panel'>";
@@ -40,25 +42,33 @@ include('module/header.php');
 						echo "<div class='panel'>";
 						crAnlass();
 						echo "</div></div>";
+
+						echo "<div class='cbStyle'><button class='accordion'>Alkoholgehalt</button>";
+						echo "<div class='panel'>";
+						crAlkohol();
+						echo "</div></div>";
 					?>
 					</div>
 				</form>
-					<script>
-					var acc = document.getElementsByClassName("accordion");
-					var i;
 
-					for (i = 0; i < acc.length; i++) {
-					  acc[i].addEventListener("click", function() {
-					    this.classList.toggle("active");
-					    var panel = this.nextElementSibling;
-					    if (panel.style.maxHeight){
-					      panel.style.maxHeight = null;
-					    } else {
-					      panel.style.maxHeight = panel.scrollHeight + "px";
-					    }
-					  });
-					}
-					</script>
+				//<!---------------------- Accordion---------------------->
+				<script>
+				var acc = document.getElementsByClassName("accordion");
+				var i;
+
+				for (i = 0; i < acc.length; i++) {
+				  acc[i].addEventListener("click", function() {
+				    this.classList.toggle("active");
+				    var panel = this.nextElementSibling;
+				    if (panel.style.maxHeight){
+				      panel.style.maxHeight = null;
+				    } else {
+				      panel.style.maxHeight = panel.scrollHeight + "px";
+				    }
+				  });
+				}
+
+				</script>
 			</section>
 
 		</section>

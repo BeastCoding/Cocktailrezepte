@@ -2,7 +2,7 @@
 /* hauptbereich */
 #hauptteil {
 
-	background: url(../img/hintergrund_rezepte.jpg) 100%;
+
 
 }
 
@@ -26,13 +26,6 @@
 	color:#000000;
 	/* background-color:#ffffff; */
 	text-shadow:2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
-	}
-
-span.pos {
-	position: absolute;
-	top: 8px;
-	left: 30px;
-
 	}
 
 .accordion {
@@ -59,10 +52,4 @@ span.pos {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-}
-
-.cbStyle{
-	width: 120px;
-	float: left;
-	padding-right: 10px
 }

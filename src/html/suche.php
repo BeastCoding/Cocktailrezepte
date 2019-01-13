@@ -34,6 +34,10 @@ include('module/header.php');
                          $anlass  = array_merge(array("anlass"), $_POST['anlass']);
                          array_push($cBox,$anlass);
                     }
+                    if(!empty( $_POST['cocktail'])){
+                         $anlass  = array_merge(array("cocktail"), $_POST['cocktail']);
+                         array_push($cBox,$anlass);
+                    }
 
 //<!---------------------- Anzeige der gesuchten Cocktails---------------------->
                     $cocktails = searchCocktail($cBox,$search);
@@ -42,22 +46,26 @@ include('module/header.php');
                     if(empty($cocktails) && empty($zutat)){
                         echo "<div>keine Ergebnisse gefunden</div>";
 
-                    }elseif(!empty($cocktails)){
-                        foreach ($cocktails as $key => $value) {
-                            echo "<div class= 'showCocktail'>";
-                            echo "<span class= 'head'>Cocktail</span>";
-                    		echo "<span>".implode("",$value)."</span>";
-                            echo "<form method='post' action = 'detail.php'><button type='submit' value = '".$key."'>Detail</button></form>";
-                            echo "</div>";
-                    	}
-                    }elseif (!empty($zutat)) {
-                        foreach ($zutat as $key => $value) {
-                            echo "<div class= 'showCocktail'>";
-                            echo "<span class= 'head'>Zutat</span>";
-                    		echo "<span>".implode("",$value)."</span>";
-                            echo "<form method='post' action = 'detail.php'><button type='submit' value = '".$key."'>Detail</button></form>";
-                            echo "</div>";
-                    	}
+                    }else{
+                        if(!empty($cocktails)){
+                            foreach ($cocktails as $key => $value) {
+                                echo "<div class= 'showCocktail'>";
+                                echo "<span class= 'head'>Cocktail</span>";
+                        		echo "<span>".implode("",$value)."</span>";
+                                echo "<form method='post' action = 'detail.php'><button name='cocktail' type='submit' value = '".$key."'>Detail</button></form>";
+                                echo "</div>";
+                        	}
+                        }
+                        if (!empty($zutat)) {
+                            foreach ($zutat as $key => $value) {
+                                echo "<div class= 'showCocktail'>";
+                                echo "<span class= 'head'>Zutat</span>";
+                        		echo "<span>".implode("",$value)."</span>";
+                                echo "<form method='post' action = 'detail.php'><button name='cocktail' type='submit' value = '".$key."'>Detail</button></form>";
+                                echo "</div>";
+                        	}
+
+                        }
                     }
                     echo "</section>"
                 ?>

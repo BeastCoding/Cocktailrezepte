@@ -50,4 +50,12 @@ function crAnlass(){
   $conn = null;
 }
 
+function crAlkohol(){
+     echo "<input type='checkbox' name='cocktail[]' value= 'alkoholfrei'> alkoholfrei <br>";
+     echo "<input type='checkbox' name='cocktail[]' value= 'mäßig'> mäßig <br>";
+     echo "<input type='checkbox' name='cocktail[]' value= 'normal'> normal <br>";
+     echo "<input type='checkbox' name='cocktail[]' value= 'stark'> stark <br>";
+  }
+  $conn = null;
+
 ?>

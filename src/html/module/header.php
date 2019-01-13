@@ -51,6 +51,11 @@ switch($page){
 		$gener_css='../css/general.css';
 		$indiv_css='../css/suche.css';
 		break;
+	case '/dashboard/cocktail/src/html/detail.php':
+		$title = 'Detail';
+		$gener_css='../css/general.css';
+		$indiv_css='../css/detail.css';
+		break;
 }
 
 // header with individual title
