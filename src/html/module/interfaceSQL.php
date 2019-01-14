@@ -4,7 +4,8 @@
 function searchCocktail($cBox,$search){
 	include('module/pdo_zugang.php');
 	include('module/sqlstat.php');
-
+	$select = "SELECT cocktail.ID , cocktail.Name FROM cocktail";
+	$where =  " WHERE cocktail.Name REGEXP '.*".$search.".*'";
 	foreach($cBox as $row){
 		switch($row[0]){
 			case "geschmack":
@@ -66,7 +67,7 @@ function getCocktail($id){
 function getZutat($id){
 	include('module/pdo_zugang.php');
 	include('module/sqlstat.php');
-	$sql = $conn->prepare("SELECT * FROM cocktail WHERE cocktail.ID = ".$id);
+	$sql = $conn->prepare("SELECT zutat.Name, zutat.ID, zutat.Einheit, cocktail_zutat.Menge FROM cocktail_zutat INNER JOIN zutat on cocktail_zutat.ZutatID = zutat.ID WHERE cocktail_zutat.CocktailID = ".$id);
 	$sql -> execute();
 	$res = $sql->fetchAll();
 	return $res;

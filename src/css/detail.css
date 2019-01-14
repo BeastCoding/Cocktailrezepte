@@ -28,6 +28,11 @@
 	text-shadow:2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
 	}
 
+#zuTextarea{
+	 rows='4';
+	 cols='10';
+}
+
 .accordion {
   background-color: #eee;
   color: #444;
@@ -52,4 +57,57 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+}
+
+/* -------------------------Cocktail------------------------------*/
+.cocktail_Name{
+
+}
+
+/* Zutaten*/
+.zutatHead{
+	float: left;
+
+}
+
+.zutat_Menge{
+	float: left;
+}
+
+.zutat_Einheit{
+	float: left;
+}
+
+.zutat_Name{
+	float: left;
+}
+/* Zutaten*/
+
+/* Eigenschaften*/
+.eigenschaften{
+	float: right;
+
+}
+
+.eigenschaften_head{
+	font-size: 0.5cm;
+
+}
+
+.eigenschaften_elem{
+	font-size: 0.3cm;
+}
+/* Eigenschaften*/
+
+/* Buttons*/
+.detail_buttons{
+
+}
+
+.update{
+
+}
+
+.delete{
+	
 }
