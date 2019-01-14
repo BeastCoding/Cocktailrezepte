@@ -8,14 +8,15 @@ include('module/header.php');
 		<div class="space1"></div>
 		<section id="hauptteil">
 			<section id="hauptteil_schriftarten">
-				<form id="" method="post" action="suche.php">
+				<form id="form_rezepte" method="post" action="suche.php">
 					<div>
 						<input type="text" name="Suche" id="tfSuche" required>
 						<button type="submit" value="Submit">Suche</button>
 					</div>
+				</form>
 					<div id="mHandler">
 					<?php
-					
+
 					//<!---------------------- Accordion---------------------->
 						include ('module/generateCB.php');
 						echo "<div class='cbStyle'><button class='accordion'>Geschmack</button>";
@@ -49,7 +50,6 @@ include('module/header.php');
 						echo "</div></div>";
 					?>
 					</div>
-				</form>
 
 				//<!---------------------- Accordion---------------------->
 				<script>

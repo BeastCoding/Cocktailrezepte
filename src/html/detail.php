@@ -11,6 +11,7 @@ include('module/header.php');
                 <?php
                     include ('module/interfaceSQL.php');
 					$cID = $_POST['cocktail'];
+					echo $cID;
 					$cocktails = getCocktail($cID);
 					$zutat = getZutat($cID);
 					$anlass = getAnlass($cID);
@@ -22,9 +23,10 @@ include('module/header.php');
 					/* -------------------------Cocktail------------------------------*/
                     echo "
         				<div>
-                            <div class=cocktail_Name> "
-								.$cocktails[0]['Name'].
-							"</div>";
+                            <div class=cocktail_Name> ";
+					echo	$cocktails[0]['Name'];
+					print_r($cocktails);
+					echo	"</div>";
 
 
 
@@ -78,7 +80,7 @@ include('module/header.php');
 					}
 					echo "</div>";
 					/* -------------------------Eigenschaften------------------------------*/
-					
+
 					echo "<div class='detail_buttons'>";
 					echo "<form method='post' action = 'update.php'><button name='update' type='submit' value = '".$cID."'>Ändern</button></form>";
 					echo "<button name='delete' type='button' value = '".$cID."'>Löschen</button>";
