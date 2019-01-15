@@ -11,7 +11,6 @@ include('module/header.php');
                 <?php
                     include ('module/interfaceSQL.php');
 					$cID = $_POST['cocktail'];
-					echo $cID;
 					$cocktails = getCocktail($cID);
 					$zutat = getZutat($cID);
 					$anlass = getAnlass($cID);
@@ -19,13 +18,13 @@ include('module/header.php');
 					$geschmack = getGeschmack($cID);
 					$glas = getGlas($cID);
 					$kat = getKategorie($cID);
+					print_r($cocktails[0]['Zubereitung']);
 
 					/* -------------------------Cocktail------------------------------*/
                     echo "
         				<div>
                             <div class=cocktail_Name> ";
 					echo	$cocktails[0]['Name'];
-					print_r($cocktails);
 					echo	"</div>";
 
 
