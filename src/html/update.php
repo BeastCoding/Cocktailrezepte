@@ -10,7 +10,7 @@ include('module/header.php');
 			<section id="hauptteil_schriftarten">
                 <?php
                     include ('module/interfaceSQL.php');
-					$cID = $_POST['cocktail'];
+					$cID = $_POST['update'];
 					$cocktails = getCocktail($cID);
 					$zutat = getZutat($cID);
 					$anlass = getAnlass($cID);
@@ -23,7 +23,7 @@ include('module/header.php');
                     echo "
         				<div>
                             <div class=cocktail_Name> ";
-					echo	$cocktails[0]['Name'];
+					echo	"<input type='text' id='cocktail_Name' value='".$cocktails[0]['Name']."'>";
 					echo	"</div>";
 
 
@@ -33,9 +33,14 @@ include('module/header.php');
 					echo "<div class='zutatHead'>Zutaten</div><br>";
 					if(!empty($zutat)){
 						foreach ($zutat as $key) {
-							echo "<div class='zutat_Menge'>".$key['Menge']."</div>";
-							echo "<div class='zutat_Einheit'>".$key['Einheit']."</div>";
-							echo "<div class='zutat_Name'>".$key['Name']."</div><br>";
+                            echo "<div>";
+							echo "<label>Zutat:</label>";
+                            echo "<input class='inputZutat' type='text' name='zutat' id='zutatenfeld_1' value='".$key['Name']."' required>";
+							echo "<label>Einheit:</label>";
+                            include('module/zutat.php');
+							echo "<label>Menge:</label>";
+                            echo "<input class='inputMenge' type='number' name='menge' id='mengefeld_1' value='".$key['Menge']."' required>";
+                            echo "</div>";
 						}
 					}else echo "Keine Zutaten";
 					echo "</div>";
@@ -77,10 +82,6 @@ include('module/header.php');
 					echo "</div>";
 					/* -------------------------Eigenschaften------------------------------*/
 
-					echo "<div class='detail_buttons'>";
-					echo "<form method='post' action = 'update.php'><button name='update' type='submit' value = '".$cID."'>Ändern</button></form>";
-					echo "<button name='delete' type='button' value = '".$cID."'>Löschen</button>";
-					echo "</div>";
 
                     echo "</div>";
                 ?>
