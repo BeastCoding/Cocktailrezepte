@@ -44,7 +44,7 @@ switch($page){
 	case '/dashboard/cocktail/src/html/db_insert.php':
 		$title = 'Erfassung';
 		$gener_css='../css/general.css';
-		$indiv_css='../css/cock_erfassen.css';
+		$indiv_css='../css/db_insert.css';
 		break;
 	case '/dashboard/cocktail/src/html/suche.php':
 		$title = 'Suche';

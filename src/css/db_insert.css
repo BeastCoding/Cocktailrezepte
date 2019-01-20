@@ -1,0 +1,32 @@
+
+/* hauptbereich */
+#hauptteil {
+	
+	width: 1080px;
+	height: 600px;
+	margin: 0 auto;
+	background: url(../img/hintergrund_rezepte.jpg) 100%;
+	background-opacity: 0.5;
+	overflow-y: scroll;
+	font-size: 2em;
+	text-align: left;
+	
+	position: relative;
+	
+	
+	
+	
+	
+	color: black;/* color:#000000;  */
+	}
+
+#h1 {
+	position: relative;
+	top: 5%;    /*185px; */   
+	left: 2%;   /*100px;  */
+	width: 90% ;  /*1080px;  */
+	height: 3em;   /*10px; */
+	color: black;/* color:#000000;  */
+
+	}	
+	
