@@ -2,16 +2,17 @@
 /* hauptbereich */
 #hauptteil {
 	/*   background: url(../../img/hintergrund_rezepte.jpg) 100%; */
-	     background: url(../img/hintergrund_cock_erf.jpg) 100%; 
-	background-opacity: 0.5;	
+	    background: url(../img/hintergrund_cock_erf.jpg) 100%; 
+		/* opacity: 0.5;	*/
 }
 
 fieldset {
 	
 	 
 	border: 2px solid #C5D8E1; 
-           border-radius: 6px; 
-       
+    border-radius: 6px; 
+    background-color: #ffe6ff; 
+	color: #1a1aff;
 	padding-top: 0.5em;
 }
 legend {
@@ -20,11 +21,12 @@ legend {
   color:green;
   font-size:90%;
   text-align:right;
+  background-color: #ffffb3;
 }
 textarea {
   background: url(../bilder/icon.jpg) center center no-repeat; /* This ruins default border */
   border: 1px solid #888; 
-   
+  background-color: #ff704d;  
     width: 100%;
 }
 .feldgroesse {

@@ -20,26 +20,26 @@ include('module/pdo_zugang.php');
 			echo "<h1>" . 'Dieser Cocktail ist schon vorhanden' . "</h1>";
 		} else{
 			if(!isset($_GET['alkoholgehalt'])) {
-				echo "Sie haben vergessen den Alkoholgehalt anzugeben." . "<br>";
-				echo "<a href='cock_erfassen.php'>Zurück</a>";
+				echo "<div class='meldung'>" . 'Sie haben vergessen den Alkoholgehalt anzugeben.' . "</div>";
+				echo "<div class='zurueck'><a href='cock_erfassen.php'>Zurück</a></div>";
 			} elseif(!isset($_GET['cocktailgeschmack'])){
-				echo "Es muss mindestens eine Geschmachsart angegeben werden.";
-				echo "<a href='cock_erfassen.php'>Zurück</a>";
+				echo "<div class='meldung'>" . 'Es muss mindestens eine Geschmacksart angegeben werden.' . "</div>";
+				echo "<div class='zurueck'><a href='cock_erfassen.php'>Zurück</a></div>";
 			} elseif(!isset($_GET['cocktailglas'])){
-				echo "Es muss mindestens ein Cocktailglas angegeben werden.";
-				echo "<a href='cock_erfassen.php'>Zurück</a>";
+				echo "<div class='meldung'>" . 'Es muss mindestens ein Cocktailglas angegeben werden.' . "</div>";
+				echo "<div class='zurueck'><a href='cock_erfassen.php'>Zurück</a></div>";
 			} elseif(!isset($_GET['cocktailart'])){
-				echo "Es muss ein Cocktailart angegeben werden.";
-				echo "<a href='cock_erfassen.php'>Zurück</a>";
+				echo "<div class='meldung'>" . 'Es muss ein Cocktailart angegeben werden.' . "</div>";
+				echo "<div class='zurueck'><a href='cock_erfassen.php'>Zurück</a></div>";
 			} elseif(!isset($_GET['dekoration'])){
-				echo "Es muss mindestens eine Dekoration angegeben werden.";
-				echo "<a href='cock_erfassen.php'>Zurück</a>";
+				echo "<div class='meldung'>" . 'Es muss mindestens eine Dekoration angegeben werden.' . "</div>";
+				echo "<div class='zurueck'><a href='cock_erfassen.php'>Zurück</a></div>";
 			} elseif(!isset($_GET['trinkanlass'])){
-				echo "Es muss mindestens ein Trinkanlass angegeben werden.";
-				echo "<a href='cock_erfassen.php'>Zurück</a>";
+				echo "<div class='meldung'>" . 'Es muss mindestens ein Trinkanlass angegeben werden.' . "</div>";
+				echo "<div class='zurueck'><a href='cock_erfassen.php'>Zurück</a></div>";
 			} elseif($anzahl_zutat < 0){
-				echo "Bitte mindestens eine Zutat eingeben!"."<br>";
-				echo "<a href='cock_erfassen.php'>Zurück</a>";
+				echo "<div class='meldung'>" . 'Bitte mindestens eine Zutat eingeben!' . "</div>";
+				echo "<div class='zurueck'><a href='cock_erfassen.php'>Zurück</a></div>";
 			} else{
 				
 				$zubereitung = $_GET['Zubereitung'];

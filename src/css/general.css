@@ -204,34 +204,20 @@ Responsive Webdesign
 	nav ul li {
 		font-size:40%;
 	}
-	.copyright_text {
-		color : white;
-	}
-	.copyright_cont {
-		font-size:0.1em;
-		width:1%;
-	}
-	.footer_nav_cont {
-		width:98%;
-	}
-	footer {
-		line-height: 0.5em;
-	}
 }
 
 
 
-/* Bildschirmbreite maximal 480px*/
-@media screen and (max-width: 480px) {
-	nav ul li {
-	display:block;
-	/* font-size:160%;
-}
-
-}
-/* Bildschirmbreite maximal 500px
+/* Bildschirmbreite maximal 500px*/
 @media screen and (max-width: 500px) {
-
+	nav ul li {
+	display:block;  
+	   
+	}
+	.striche {
+		color: white;
+	}
+	
 	.copyright_text {
 		color: white;
 		font-size:1%;
@@ -244,8 +230,7 @@ Responsive Webdesign
 		width:98%;
 	}
 	footer {
-		line-height: 0.5em;
-	}
+		line-height: 0.5em;  
+	}		
 
 }
-*/

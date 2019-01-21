@@ -5,28 +5,63 @@
 	width: 1080px;
 	height: 600px;
 	margin: 0 auto;
-	background: url(../img/hintergrund_rezepte.jpg) 100%;
+	background: url(../img/hintergrund_insert.jpg) 100%;
 	background-opacity: 0.5;
 	overflow-y: scroll;
 	font-size: 2em;
 	text-align: left;
 	
 	position: relative;
-	
-	
-	
-	
-	
 	color: black;/* color:#000000;  */
 	}
 
-#h1 {
-	position: relative;
-	top: 5%;    /*185px; */   
-	left: 2%;   /*100px;  */
+
+	
+.meldung {
+	
+	margin: 0px auto;
+	margin-top: 2em;
+	padding: 1em;
+	background-color: #e6ffe6;
+	border-style: solid;
+	border-radius: 0.2em;
+	border-color: #999900;
+	top: 15%;    /*185px; */   
+	left: 20%;   /*100px;  */
+	width: 50%;
+	color: #1a1aff;
+	text-shadow:#ccc 0 0.02em 0, #c9c9c9 0 0.03em 0, #bbb 0 0.04em 0,
+				#b9b9b9 0 0.05em 0, #aaa 0 0.06em 0,rgba(0,0,0,.1) 0 0.07em 0.02em,
+				rgba(0,0,0,.1) 0 0 0.1em, rgba(0,0,0,.3) 0 0.02em 0.06em,
+				rgba(0,0,0,.15) 0 0.06em 0.05em, rgba(0,0,0,.2) 0 0.2em 0.2em,
+				rgba(0,0,0,.2) 0 0.2em 0.2em, rgba(0,0,0,.1) 0 0.4em 0.4em;
+}
+
+
+
+.zurueck {
+	font-size: 0.5em;
+	margin-left: 65%;
+	margin-top: 2em;
+	padding: 0.5em;
+	text-align: center;
+	background-color: #ffff99;
+	border-style: solid;
+	border-radius: 0.2em;
+	border-color: #1a1aff;
+	width: 14%;
+	
+}
+	
+h1 {
+	font-size: 1.5em;
+	
+	margin: 0px auto;
+	margin-top: 2em;
+	padding: 1em;
 	width: 90% ;  /*1080px;  */
-	height: 3em;   /*10px; */
-	color: black;/* color:#000000;  */
+	
+	color: #b3d9ff/* color:#000000;  */
 
 	}	
 	
