@@ -79,9 +79,8 @@ include('module/header.php');
 
 					echo "<div class='detail_buttons'>";
 					echo "<form method='post' action = 'update.php'><button name='update' type='submit' value = '".$cID."'>Ändern</button></form>";
-					echo "<button name='delete' type='button' value = '".$cID."'>Löschen</button>";
+					echo "<form method='post' action = 'delete.php'><button name='delete' type='submit' value = '".$cID."'>Löschen</button></form>";
 					echo "</div>";
-
                     echo "</div>";
                 ?>
 

@@ -118,11 +118,12 @@ function getKategorie($id){
 
 function deleteCocktail($dieser_cocktail_wird_geloescht){
 	include('module/pdo_zugang.php');
-	/*----------------------------- ID von Cocktail wird hier gesucht und in $cocktail_ID gespeichert ---------------------------------------*/
+	/*----------------------------- ID von Cocktail wird hier gesucht und in $cocktail_ID gespeichert ---------------------------------------*//*
 	$cocktail_ID_abfrage  = $conn->prepare("SELECT ID FROM `cocktail` WHERE `Name` LIKE '$dieser_cocktail_wird_geloescht'");
 	$cocktail_ID_abfrage->execute();
 	$cocktail_ID = $cocktail_ID_abfrage->fetchColumn();
 	/*----------------------------- Wenn ID direkt in die funktion eingegeben wird einfach in $cocktail_ID einsetzen ------------------------*/
+	$cocktail_ID = $dieser_cocktail_wird_geloescht;
 	$delete_statement = $conn->prepare("DELETE FROM `cocktail_anlass` WHERE `cocktail_anlass`.`CocktailID` LIKE '$cocktail_ID'");
 	$delete_statement->execute();
 	$delete_statement = $conn->prepare("DELETE FROM `cocktail_einzeldeko` WHERE `cocktail_einzeldeko`.`CocktailID` LIKE '$cocktail_ID'");

@@ -116,7 +116,7 @@ include('module/pdo_zugang.php');
 					$suche_zutat = $zutat_abfrage->fetch();
 					if($suche_zutat == false) {
 						/*------------------------------ Zutaten einfügen ------------------------------*/
-						$statement_zutat_einfügen = $conn->prepare("INSERT INTO `zutat` (`Name`, `Menge`,`Einheit`) VALUES ('$zutat', '100','$einheit')");
+						$statement_zutat_einfügen = $conn->prepare("INSERT INTO `zutat` (`Name`,`Einheit`) VALUES ('$zutat', '$einheit')");
 						$statement_zutat_einfügen->execute();	/*Zutat einfügen wenn nicht vorhanden.*/
 						
 						/*------------------------------ Zutaten und Cocktail verbinden ------------------------------*/
