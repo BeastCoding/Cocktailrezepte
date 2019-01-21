@@ -21,7 +21,7 @@ include('module/header.php');
 						include ('module/generateCB.php');
 						echo "<div class='cbStyle'><button class='accordion'>Geschmack</button>";
 						echo "<div class='panel'>";
-						crGeschmack(array());
+						crGeschmack();
 						echo "</div></div>";
 
 						echo "<div class='cbStyle'><button class='accordion'>Glastyp</button>";
