@@ -10,7 +10,7 @@ include('module/header.php');
 			<section id="hauptteil_schriftarten">
 				<form id="form_rezepte" method="post" action="suche.php">
 					<div>
-						<input type="text" name="Suche" id="tfSuche" required>
+						<input type="text" name="Suche" id="tfSuche" onsubmit="if(this == ''){$this.Suche('.*');}">
 						<button type="submit" value="Submit">Suche</button>
 					</div>
 				</form>

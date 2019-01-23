@@ -50,6 +50,7 @@ include('module/header.php');
                 updateEigenschaft($cID, $cBox);
                 ?>
                 <div>Cocktail erfolgreich geändert</div>
+				<a href="rezepte.php">zurück</a>
 			</section>
 
 		</section>
