@@ -1,19 +1,26 @@
 
 /* hauptbereich */
 #hauptteil {
-
-
+	width: 1080px;
+	height: 600px;
+	margin: 0 auto;
+	background: url(../img/hintergrund_suche.jpg) 100%;
+	overflow-y: scroll;  
+	text-align: left;
+	
+	position: relative;
+	color: black;/* color:#000000;  */
 
 }
 
-
+/*
 #hauptteil_schriftarten {
 
 	width: 1080px;
 	background-size: 1080px;
 	height: 600px;
 	margin: 0 auto;
-	font-size: 50px;
+	font-size: 2em;
 
 }
 
@@ -24,16 +31,31 @@
 	width: 1080px;
 	height: 30px;
 	color:#000000;
-	/* background-color:#ffffff; */
+	
 	text-shadow:2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
 	}
-
+*/
 .showCocktail{
-    border-color: green;
-    border-width: 5px;
-    border-style: solid;
+    margin: 0px auto;
+	margin-top: 1em;
+	padding: 1em;
+	background-color: #e6ffe6;
+	border-style: solid;
+	border-radius: 0.2em;
+	border-color: #999900;
+	top: 15%;    /*185px; */   
+	left: 20%;   /*100px;  */
+	width: 50%;
+	color: #1a1aff;
+	text-shadow:#ccc 0 0.02em 0, #c9c9c9 0 0.03em 0, #bbb 0 0.04em 0,
+				#b9b9b9 0 0.05em 0, #aaa 0 0.06em 0,rgba(0,0,0,.1) 0 0.07em 0.02em,
+				rgba(0,0,0,.1) 0 0 0.1em, rgba(0,0,0,.3) 0 0.02em 0.06em,
+				rgba(0,0,0,.15) 0 0.06em 0.05em, rgba(0,0,0,.2) 0 0.2em 0.2em,
+				rgba(0,0,0,.2) 0 0.2em 0.2em, rgba(0,0,0,.1) 0 0.4em 0.4em;
 }
 
 .head{
-    font-size: 0.5cm;
+	color: red;
+	padding: 1em;
+    font-size: 0.8em;
 }
