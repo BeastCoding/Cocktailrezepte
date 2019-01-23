@@ -41,9 +41,8 @@ include('module/header.php');
 
 //<!---------------------- Anzeige der gesuchten Cocktails---------------------->
                     $cocktails = searchCocktail($cBox,$search);
-                    $zutat = searchZutat($search);
                     echo "<section id='data'>";
-                    if(empty($cocktails) && empty($zutat)){
+                    if(empty($cocktails)){
                         echo "<div>keine Ergebnisse gefunden</div>";
 
                     }else{
@@ -56,16 +55,7 @@ include('module/header.php');
                                 echo "</div>";
                         	}
                         }
-                        if (!empty($zutat)) {
-                            foreach ($zutat as $key => $value) {
-                                echo "<div class= 'showCocktail'>";
-                                echo "<span class= 'head'>Zutat</span>";
-                        		echo "<span>".implode("",$value)."</span>";
-                                echo "<form method='post' action = 'detail.php'><button name='cocktail' type='submit' value = '".$key."'>Detail</button></form>";
-                                echo "</div>";
-                        	}
 
-                        }
                     }
                     echo "</section>"
                 ?>
