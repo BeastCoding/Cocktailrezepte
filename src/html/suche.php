@@ -35,8 +35,8 @@ include('module/header.php');
                          array_push($cBox,$anlass);
                     }
                     if(!empty( $_POST['cocktail'])){
-                         $anlass  = array_merge(array("cocktail"), $_POST['cocktail']);
-                         array_push($cBox,$anlass);
+                         $cocktail  = array_merge(array("cocktail"), $_POST['cocktail']);
+                         array_push($cBox,$cocktail);
                     }
 
 //<!---------------------- Anzeige der gesuchten Cocktails---------------------->

@@ -8,7 +8,7 @@ include('module/header.php');
 		<div class="space1"></div>
 		<section id="hauptteil">
 			<section id="hauptteil_schriftarten">
-				<form id="form_rezepte" method="post" action="Status.php">
+				<form id="form_rezepte" method="post" action="saveupdate.php">
 				</form>
                 <?php
                     include ('module/interfaceSQL.php');
@@ -25,7 +25,7 @@ include('module/header.php');
                     echo "
         				<div>
                             <div class=cocktail_Name> ";
-					echo	"<input type='text' id='cocktail_Name' value='".$cocktails[0]['Name']."'>";
+					echo	"<input form='form_rezepte' type='text' id='cocktail_Name' name='cocktail_Name' value='".$cocktails[0]['Name']."'>";
 					echo	"</div>";
 
 
@@ -37,11 +37,11 @@ include('module/header.php');
 						foreach ($zutat as $key) {
                             echo "<div>";
 							echo "<label>Zutat:</label>";
-                            echo "<input class='inputZutat' type='text' name='zutat' id='zutatenfeld_1' value='".$key['Name']."' readonly>";
+                            echo "<input form='form_rezepte' class='inputZutat' type='text' name='zutat[]' value='".$key['Name']."' readonly>";
 							echo "<label>Einheit:</label>";
-							echo "<input class='inputZutat' type='text' name='zutat' id='zutatenfeld_1' value='".$key['Einheit']."' readonly>";
+							echo "<input class='inputZutat' type='text' name='einheit' value='".$key['Einheit']."' readonly>";
 							echo "<label>Menge:</label>";
-                            echo "<input class='inputMenge' type='number' name='menge' id='mengefeld_1' value='".$key['Menge']."' required>";
+                            echo "<input form='form_rezepte' class='inputMenge' type='number' name='menge[]' value='".$key['Menge']."' required>";
                             echo "</div>";
 						}
 					}else echo "Keine Zutaten";
@@ -51,7 +51,7 @@ include('module/header.php');
 					/* -------------------------Zubereitung------------------------------*/
                     echo "
                             <div class='zubereitung'>
-                                <textarea id='zuTextarea'>".$cocktails[0]['Zubereitung']."</textarea>
+                                <textarea form='form_rezepte' id='zuTextarea' name='cocktail_Zub'>".$cocktails[0]['Zubereitung']."</textarea>
                             </div>";
 					/* -------------------------Zubereitung------------------------------*/
 
@@ -110,7 +110,7 @@ include('module/header.php');
 					echo "</div></div>";
 					/* -------------------------Eigenschaften------------------------------*/
 
-
+					echo "<button form='form_rezepte' name='cocktail_ID' type='submit' value = '".$cID."'>Speichern</button>";
                     echo "</div>";
                 ?>
 				<script>

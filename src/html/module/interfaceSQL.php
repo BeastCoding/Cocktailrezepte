@@ -113,6 +113,71 @@ function getKategorie($id){
 	return $res;
 }
 
+function updateCocktail($cID, $cName, $cText){
+	include('module/pdo_zugang.php');
+	$sql = $conn->prepare("UPDATE cocktail SET Name='".$cName."', Zubereitung= '".$cText."' WHERE ID= ".$cID);
+	$sql -> execute();
+}
+
+function updateZutat($cID, $zName, $zMenge){
+	include('module/pdo_zugang.php');
+	$sql = $conn->prepare("UPDATE cocktail_zutat INNER JOIN cocktail on cocktail_zutat.CocktailID = cocktail.ID INNER JOIN zutat on cocktail_zutat.ZutatID = zutat.ID SET cocktail_zutat.Menge = '".$zMenge."' WHERE zutat.Name= '".$zName."' AND cocktail.ID=".$cID);
+	$sql -> execute();
+}
+
+function updateEigenschaft($cID, $cBox){
+	$delete_statement = $conn->prepare("DELETE FROM `cocktail_anlass` WHERE `cocktail_anlass`.`CocktailID` LIKE '$cID'");
+	$delete_statement->execute();
+	$delete_statement = $conn->prepare("DELETE FROM `cocktail_einzeldeko` WHERE `cocktail_einzeldeko`.`CocktailID` LIKE '$cID'");
+	$delete_statement->execute();
+	$delete_statement = $conn->prepare("DELETE FROM `cocktail_geschmack` WHERE `cocktail_geschmack`.`CocktailID` LIKE '$cID'");
+	$delete_statement->execute();
+	$delete_statement = $conn->prepare("DELETE FROM `cocktail_glas` WHERE `cocktail_glas`.`CocktailID` LIKE '$cID'");
+	$delete_statement->execute();
+	$delete_statement = $conn->prepare("DELETE FROM `cocktail_kategorie` WHERE `cocktail_kategorie`.`CocktailID` LIKE '$cID'");
+	$delete_statement->execute();
+
+	foreach($cBox as $row){
+		switch($row[0]){
+			case "geschmack":
+				for ($i = 1;$i < sizeof($row); $i++) {
+					$sql = $conn->prepare("INSERT INTO `cocktail_geschmack` (`CocktailID`, `GeschmackID`) VALUES ('$cID', '$row[$i]')");
+					$sql->execute();
+				}
+				break;
+			case "glas":
+				for ($i = 1;$i < sizeof($row); $i++) {
+					$sql = $conn->prepare("INSERT INTO `cocktail_glas` (`CocktailID`, `GlasID`) VALUES ('$cID', '$row[$i]')");
+					$sql->execute();
+				}
+				break;
+			case "kategorie":
+				for ($i = 1;$i < sizeof($row); $i++) {
+					$sql = $conn->prepare("INSERT INTO `cocktail_kategorie` (`CocktailID`, `kategorieID`) VALUES ('$cID', '$row[$i]')");
+					$sql->execute();
+				}
+				break;
+			case "einzeldeko":
+				for ($i = 1;$i < sizeof($row); $i++) {
+					$sql = $conn->prepare("INSERT INTO `cocktail_einzeldeko` (`CocktailID`, `einzeldekoID`) VALUES ('$cID', '$row[$i]')");
+					$sql->execute();
+				}
+				break;
+			case "anlass":
+				for ($i = 1;$i < sizeof($row); $i++) {
+					$sql = $conn->prepare("INSERT INTO `cocktail_anlass` (`CocktailID`, `anlassID`) VALUES ('$cID', '$row[$i]')");
+					$sql->execute();
+				}
+				break;
+			}
+			for ($i = 1;$i < sizeof($row); $i++) {
+				if(strcmp($row[0], "cocktail") == 0){
+					$where = $where." AND ".$row[0].".Alkohol = '".$row[$i]."'";
+				}
+	}
+
+}
+
 
 
 
