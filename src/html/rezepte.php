@@ -21,32 +21,32 @@ include('module/header.php');
 						include ('module/generateCB.php');
 						echo "<div class='cbStyle'><button class='accordion'>Geschmack</button>";
 						echo "<div class='panel'>";
-						crGeschmack();
+						crGeschmack(array());
 						echo "</div></div>";
 
 						echo "<div class='cbStyle'><button class='accordion'>Glastyp</button>";
 						echo "<div class='panel'>";
-						crGlas();
+						crGlas(array());
 						echo "</div></div>";
 
 						echo "<div class='cbStyle'><button class='accordion'>Cocktailart</button>";
 						echo "<div class='panel'>";
-						crKategorie();
+						crKategorie(array());
 						echo "</div></div>";
 
 						echo "<div class='cbStyle'><button class='accordion'>Dekoration</button>";
 						echo "<div class='panel'>";
-						crDeko();
+						crDeko(array());
 						echo "</div></div>";
 
 						echo "<div class='cbStyle'><button class='accordion'>Trinkanlass</button>";
 						echo "<div class='panel'>";
-						crAnlass();
+						crAnlass(array());
 						echo "</div></div>";
 
 						echo "<div class='cbStyle'><button class='accordion'>Alkoholgehalt</button>";
 						echo "<div class='panel'>";
-						crAlkohol();
+						crAlkohol(array());
 						echo "</div></div>";
 					?>
 					</div>

@@ -126,6 +126,7 @@ function updateZutat($cID, $zName, $zMenge){
 }
 
 function updateEigenschaft($cID, $cBox){
+	include('module/pdo_zugang.php');
 	$delete_statement = $conn->prepare("DELETE FROM `cocktail_anlass` WHERE `cocktail_anlass`.`CocktailID` LIKE '$cID'");
 	$delete_statement->execute();
 	$delete_statement = $conn->prepare("DELETE FROM `cocktail_einzeldeko` WHERE `cocktail_einzeldeko`.`CocktailID` LIKE '$cID'");
@@ -153,26 +154,27 @@ function updateEigenschaft($cID, $cBox){
 				break;
 			case "kategorie":
 				for ($i = 1;$i < sizeof($row); $i++) {
-					$sql = $conn->prepare("INSERT INTO `cocktail_kategorie` (`CocktailID`, `kategorieID`) VALUES ('$cID', '$row[$i]')");
+					$sql = $conn->prepare("INSERT INTO `cocktail_kategorie` (`CocktailID`, `KategorieID`) VALUES ('$cID', '$row[$i]')");
 					$sql->execute();
 				}
 				break;
 			case "einzeldeko":
 				for ($i = 1;$i < sizeof($row); $i++) {
-					$sql = $conn->prepare("INSERT INTO `cocktail_einzeldeko` (`CocktailID`, `einzeldekoID`) VALUES ('$cID', '$row[$i]')");
+					$sql = $conn->prepare("INSERT INTO `cocktail_einzeldeko` (`CocktailID`, `EinzeldekoID`) VALUES ('$cID', '$row[$i]')");
 					$sql->execute();
 				}
 				break;
 			case "anlass":
 				for ($i = 1;$i < sizeof($row); $i++) {
-					$sql = $conn->prepare("INSERT INTO `cocktail_anlass` (`CocktailID`, `anlassID`) VALUES ('$cID', '$row[$i]')");
+					$sql = $conn->prepare("INSERT INTO `cocktail_anlass` (`CocktailID`, `AnlassID`) VALUES ('$cID', '$row[$i]')");
 					$sql->execute();
 				}
 				break;
 			}
 			for ($i = 1;$i < sizeof($row); $i++) {
 				if(strcmp($row[0], "cocktail") == 0){
-					$where = $where." AND ".$row[0].".Alkohol = '".$row[$i]."'";
+					$sql = $conn->prepare("UPDATE cocktail SET Alkohol='".$row[$i]."' WHERE ID= ".$cID);
+					$sql -> execute();
 				}
 			}
 	}

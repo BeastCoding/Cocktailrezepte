@@ -74,6 +74,10 @@ include('module/header.php');
 					foreach ($kat as $key) {
 						echo "<div class='eigenschaften_elem'>".$key['Cocktailart']."</div>";
 					}
+
+					echo "<div class='eigenschaften_head'>Alkohol</div>";
+					echo "<div class='eigenschaften_elem'>".$cocktails[0]['Alkohol']."</div>";
+
 					echo "</div>";
 					/* -------------------------Eigenschaften------------------------------*/
 
