@@ -174,6 +174,7 @@ function updateEigenschaft($cID, $cBox){
 				if(strcmp($row[0], "cocktail") == 0){
 					$where = $where." AND ".$row[0].".Alkohol = '".$row[$i]."'";
 				}
+			}
 	}
 
 }
