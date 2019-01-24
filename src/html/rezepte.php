@@ -10,7 +10,7 @@ include('module/header.php');
 			<section id="hauptteil_schriftarten">
 				<form id="form_rezepte" method="post" action="suche.php">
 					<div>
-						<input type="text" name="Suche" id="tfSuche" required>
+						<input type="text" name="Suche" id="tfSuche" onsubmit="if(this == ''){$this.Suche('.*');}">
 						<button type="submit" value="Submit">Suche</button>
 					</div>
 				</form>
@@ -21,32 +21,32 @@ include('module/header.php');
 						include ('module/generateCB.php');
 						echo "<div class='cbStyle'><button class='accordion'>Geschmack</button>";
 						echo "<div class='panel'>";
-						crGeschmack();
+						crGeschmack(array());
 						echo "</div></div>";
 
 						echo "<div class='cbStyle'><button class='accordion'>Glastyp</button>";
 						echo "<div class='panel'>";
-						crGlas();
+						crGlas(array());
 						echo "</div></div>";
 
 						echo "<div class='cbStyle'><button class='accordion'>Cocktailart</button>";
 						echo "<div class='panel'>";
-						crKategorie();
+						crKategorie(array());
 						echo "</div></div>";
 
 						echo "<div class='cbStyle'><button class='accordion'>Dekoration</button>";
 						echo "<div class='panel'>";
-						crDeko();
+						crDeko(array());
 						echo "</div></div>";
 
 						echo "<div class='cbStyle'><button class='accordion'>Trinkanlass</button>";
 						echo "<div class='panel'>";
-						crAnlass();
+						crAnlass(array());
 						echo "</div></div>";
 
 						echo "<div class='cbStyle'><button class='accordion'>Alkoholgehalt</button>";
 						echo "<div class='panel'>";
-						crAlkohol();
+						crAlkohol(array());
 						echo "</div></div>";
 					?>
 					</div>

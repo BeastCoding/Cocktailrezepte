@@ -12,8 +12,8 @@ include('module/header.php');
 //<!---------------------- Post Form ---------------------->
                     include('module/interfaceSQL.php');
                     $search = $_POST['Suche'];
-                    $cBox = array();
 
+                    $cBox = array();
                     if(!empty( $_POST['geschmack'])){
                         $gesch = array_merge(array("geschmack"), $_POST['geschmack']);
                         array_push($cBox,$gesch);

@@ -22,7 +22,35 @@ include('module/header.php');
                     updateZutat($cID, $zName[$i], $zMenge[$i]);
                 }
 
+                $cBox = array();
+                if(!empty( $_POST['geschmack'])){
+                    $gesch = array_merge(array("geschmack"), $_POST['geschmack']);
+                    array_push($cBox,$gesch);
+                }
+                if(!empty( $_POST['glas'])){
+                    $glas = array_merge(array("glas"), $_POST['glas']);
+                    array_push($cBox,$glas);
+                }
+                if(!empty( $_POST['kategorie'])){
+                    $kat = array_merge(array("kategorie"), $_POST['kategorie']);
+                    array_push($cBox,$kat);
+                }
+                if(!empty( $_POST['einzeldeko'])){
+                    $deko = array_merge(array("einzeldeko"), $_POST['einzeldeko']);
+                    array_push($cBox,$deko);
+                }
+                if(!empty( $_POST['anlass'])){
+                     $anlass  = array_merge(array("anlass"), $_POST['anlass']);
+                     array_push($cBox,$anlass);
+                }
+                if(!empty( $_POST['cocktail'])){
+                     $cocktail  = array_merge(array("cocktail"), $_POST['cocktail']);
+                     array_push($cBox,$cocktail);
+                }
+                updateEigenschaft($cID, $cBox);
                 ?>
+                <div>Cocktail erfolgreich geändert</div>
+				<a href="rezepte.php">zurück</a>
 			</section>
 
 		</section>
