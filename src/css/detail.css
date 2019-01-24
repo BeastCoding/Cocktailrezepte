@@ -1,12 +1,20 @@
 
 /* hauptbereich */
 #hauptteil {
-
+	width: 1080px;
+	height: 600px;
+	margin: 0 auto;
+	background: url(../img/hintergrund_detail.jpg) 100%;
+	overflow-y: scroll;  
+/*	text-align: left;  */
+	
+	position: relative;
+	color: black;/* color:#000000;  */
 
 
 }
 
-
+/*
 #hauptteil_schriftarten {
 
 	width: 1080px;
@@ -24,14 +32,11 @@
 	width: 1080px;
 	height: 30px;
 	color:#000000;
-	/* background-color:#ffffff; */
+	
 	text-shadow:2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
 	}
+*/
 
-#zuTextarea{
-	 rows='4';
-	 cols='10';
-}
 
 .accordion {
   background-color: #eee;
@@ -61,53 +66,154 @@
 
 /* -------------------------Cocktail------------------------------*/
 .cocktail_Name{
-
+	font-size: 4em;
+	/* top: 6.6%;   
+	left: 8%;   */
+	margin: 0.3em;
+	color: rgb(255,153,51);
+	text-shadow:#ccc 0 0.01em 0, #c9c9c9 0 0.02em 0, #bbb 0 0.03em 0,
+				#b9b9b9 0 0.04em 0, #aaa 0 0.05em 0,rgba(0,0,0,.1) 0 0.06em 0.01em,
+				rgba(0,0,0,.1) 0 0 0.05em, rgba(0,0,0,.3) 0 0.01em 0.03em,
+				rgba(0,0,0,.15) 0 0.03em 0.05em, rgba(0,0,0,.2) 0 0.05em 0.1em,
+				rgba(0,0,0,.2) 0 0.1em 0.1em, rgba(0,0,0,.1) 0 0.2em 0.2em;
 }
 
 /* Zutaten*/
-.zutatHead{
+
+.zutaten{
 	float: left;
+	margin: 0.4em;
+	padding: 0.2em;
+/*	background-color: red;*/
+	width: 40%;
+	height:20em;
+	border-style: solid;
+	border-radius: 0.2em;
+	border-color: #999900;
+}
+
+.zutatHead{
+	font-size: 1.2em;
+	padding: 0.2em;
+	color:#cc0066;
+	text-shadow: 0px 0px 8px #E4E617;
+	
+	
 
 }
 
 .zutat_Menge{
 	float: left;
+	font-size: 1em;
+	margin-left: 0.2em;
+	margin-bottom: 0.2em;
+	color:#4d004d;
+	text-shadow: 0px 0px 8px #E4E617;
+	
+	width: 10%;
 }
 
 .zutat_Einheit{
 	float: left;
+	font-size: 1em;
+	margin-left: 0.2em;
+	margin-bottom: 0.2em;
+	color:#4d004d;
+	text-shadow: 0px 0px 8px #E4E617;
+	
+	width: 15%;
 }
 
 .zutat_Name{
 	float: left;
+	font-size: 1em;
+	margin-left: 0.2em;
+	margin-bottom: 0.2em;
+	color:#4d004d;
+	text-shadow: 0px 0px 8px #E4E617;
+	
+	width: 70%;
 }
 /* Zutaten*/
 
 /* Eigenschaften*/
 .eigenschaften{
 	float: right;
-
+	margin: 0.4em;
+	padding: 0.2em;
+/*	background-color: blue;*/
+	width: 20%;
+	height:20em;
+	border-style: solid;
+	border-radius: 0.2em;
+	border-color: #999900;
 }
 
 .eigenschaften_head{
-	font-size: 0.5cm;
+	font-size: 1.2em;
+	padding: 0.2em;
+	color:#cc0066;
+	text-shadow: 0px 0px 8px #E4E617;
 
 }
 
 .eigenschaften_elem{
-	font-size: 0.3cm;
+	font-size: 1em;
+	margin-left: 0.6em;
+	margin-bottom: 0.2em;
+	color:#4d004d;
+	text-shadow: 0px 0px 8px #E4E617;
 }
 /* Eigenschaften*/
 
-/* Buttons*/
-.detail_buttons{
+/* Zubereitung */
+.zubereitung {
+	float: left;
+/*	background-color: green;*/
+	width: 97.8%;
+	margin: 0.4em;
+	padding: 0.2em;
+	border-style: solid;
+	border-radius: 0.2em;
+	border-color: #999900;
+}
+
+.zubereitungHead{
+	font-size: 1.2em;
+	color:#cc0066;
+	text-shadow: 0px 0px 8px #E4E617;
 
 }
 
-.update{
+.zuTextarea{
+	width:95%;
+	color:#4d004d;
+	text-shadow: 0px 0px 8px #E4E617;
+	opacity: 1;
+	font-size: 1em;
+	
+}
+/* Zubereitung  */
 
+
+/* Buttons*/
+.detail_buttons{
+	width: 60%;
+	margin: 0.4em;
+	padding: 0.2em;
+	float: left;
+/*	background-color: yellow;*/
+}
+.update{
+	width: 30%;
+	float: left;
+	margin: 0.4em;
+	padding: 0.2em;
 }
 
 .delete{
-	
+	float: right;
+	width: 30%;
+	margin: 0.4em;
+	padding: 0.2em;
 }

@@ -41,13 +41,7 @@ include('module/header.php');
 					echo "</div>";
 					/* -------------------------Zutaten------------------------------*/
 
-					/* -------------------------Zubereitung------------------------------*/
-                    echo "
-                            <div class='zubereitung'>
-                                <textarea id='zuTextarea'>".$cocktails[0]['Zubereitung']."</textarea>
-                            </div>";
-					/* -------------------------Zubereitung------------------------------*/
-
+					
 					/* -------------------------Eigenschaften------------------------------*/
 					echo "<div class='eigenschaften'>";
 					echo "<div class='eigenschaften_head'>Anlass</div>";
@@ -76,12 +70,19 @@ include('module/header.php');
 					}
 					echo "</div>";
 					/* -------------------------Eigenschaften------------------------------*/
+					
+					/* -------------------------Zubereitung------------------------------*/
+                    echo "<div class='zubereitung'>";
+						echo "<div class='zubereitungHead'>Zubereitung</div><br>";
+						echo "<div class='zuTextarea'>".$cocktails[0]['Zubereitung']."</div>";
+                    echo "</div>";
+					/* -------------------------Zubereitung------------------------------*/
 
 					echo "<div class='detail_buttons'>";
-					echo "<form method='post' action = 'update.php'><button name='update' type='submit' value = '".$cID."'>Ändern</button></form>";
-					echo "<form method='post' action = 'delete.php'><button name='delete' type='submit' value = '".$cID."'>Löschen</button></form>";
+					echo "<form method='post' action = 'update.php'><button class='update' type='submit' value = '".$cID."'>Ändern</button></form>";
+					echo "<form method='post' action = 'delete.php'><button class='delete' type='submit' value = '".$cID."'>Löschen</button></form>";
 					echo "</div>";
-                    echo "</div>";
+                    
                 ?>
 
 
