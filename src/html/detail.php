@@ -41,7 +41,7 @@ include('module/header.php');
 					echo "</div>";
 					/* -------------------------Zutaten------------------------------*/
 
-					
+
 					/* -------------------------Eigenschaften------------------------------*/
 					echo "<div class='eigenschaften'>";
 					echo "<div class='eigenschaften_head'>Anlass</div>";
@@ -70,7 +70,7 @@ include('module/header.php');
 					}
 					echo "</div>";
 					/* -------------------------Eigenschaften------------------------------*/
-					
+
 					/* -------------------------Zubereitung------------------------------*/
                     echo "<div class='zubereitung'>";
 						echo "<div class='zubereitungHead'>Zubereitung</div><br>";
@@ -79,10 +79,10 @@ include('module/header.php');
 					/* -------------------------Zubereitung------------------------------*/
 
 					echo "<div class='detail_buttons'>";
-					echo "<form method='post' action = 'update.php'><button class='update' type='submit' value = '".$cID."'>Ändern</button></form>";
-					echo "<form method='post' action = 'delete.php'><button class='delete' type='submit' value = '".$cID."'>Löschen</button></form>";
+					echo "<form method='post' action = 'update.php'><button class='update' name='update' type='submit' value = '".$cID."'>Ändern</button></form>";
+					echo "<form method='post' action = 'delete.php'><button class='delete' name='delete' type='submit' value = '".$cID."'>Löschen</button></form>";
 					echo "</div>";
-                    
+
                 ?>
 
 
