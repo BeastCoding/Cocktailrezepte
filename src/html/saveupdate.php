@@ -16,7 +16,6 @@ include('module/header.php');
                 $zName = $_POST['zutat'];
                 $zMenge = $_POST['menge'];
 
-                print_r($zName);
                 updateCocktail($cID, $cName, $cZub);
                 for ($i=0; $i < count($zName); $i++) {
                     updateZutat($cID, $zName[$i], $zMenge[$i]);
